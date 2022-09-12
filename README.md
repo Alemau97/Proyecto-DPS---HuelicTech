@@ -9,9 +9,13 @@ Amaya Ramírez, David Elías AR190019
 
 
 //LINK TRELLO
+
 https://trello.com/b/kFs5T5Ai/huelictech
 
 //LINK FIGMA (MockUps)
+
 https://www.figma.com/file/jzfmDVbiGWvgQBZYWIyo6s/Untitled?node-id=0%3A1
 
 //DOCUMENTO PDF
+
+https://github.com/Alemau97/Proyecto-DPS---HuelicTech/blob/main/HuelicTech%20Fase%201.pdf
