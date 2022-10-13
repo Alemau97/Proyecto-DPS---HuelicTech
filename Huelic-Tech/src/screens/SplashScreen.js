@@ -11,7 +11,7 @@ export default class LoginScreen extends Component{
     componentDidMount(){
         setTimeout( ()=>{
             this.goToScreen('Main')
-        }, 3000, this)
+        }, 2000, this)
     }
 
     render(){
@@ -19,9 +19,9 @@ export default class LoginScreen extends Component{
            <View style={imageBackgroundStyle.image}>
                <StatusBar translucent backgroundColor='rgba(0,0,0,0.2)'/>
                <Animatable.Image
-                   animation="pulse"
+                   animation="slideInDown"
                    easing="ease-out"
-                   iterationCount="infinite"
+                   iterationCount={1}
                    style={{
                        width: 320,
                        height: 80,

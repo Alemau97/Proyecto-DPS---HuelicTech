@@ -1,18 +1,24 @@
 import React, { Component } from "react";
 import { StatusBar } from "expo-status-bar";
+import {MaterialIcons} from '@expo/vector-icons'
+import {MaterialCommunityIcons} from '@expo/vector-icons'
 import {
   StyleSheet,
   Text,
   View,
   Image,
   TextInput,
+  TouchableOpacity,
   ScrollView,
   Pressable,
 } from "react-native";
 
 export const MainScreen = () => {
+  const [show, setShow] = React.useState(false);
+  const [visible, setVisible] = React.useState(true);
+
   return (
-    <View className="flex flex-1 bg-white justify-center px-10">
+    <View className="flex flex-1 bg-white justify-center px-12">
       <View className="flex justify-center items-center">
         <Image
           className=""
@@ -31,12 +37,12 @@ export const MainScreen = () => {
           </View>
           <TextInput
             keyboardType="text"
-            placeholder="Correo"
+            placeholder="Ingresar Correo"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </View>
         <View className="pb-3">
-          <View className="flex flex-row">
+          <View className="flex flex-row mb-1">
             <Image
               style={{ width: 30, height: 30 }}
               source={require("../images/ContraseñaLogin.png")}
@@ -44,13 +50,20 @@ export const MainScreen = () => {
             <Text className="text-[#128CB1] mt-1.5">Contraseña</Text>
           </View>
           <TextInput
+            secureTextEntry={visible}
             keyboardType="text"
-            placeholder="Contraseña"
+            placeholder="Ingresar Contraseña"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
+          <TouchableOpacity className="position absolute ml-64 top-11" onPress={()=> {
+            setVisible(!visible) 
+            setShow(!show)}
+            }>
+           <MaterialCommunityIcons name={show === false ? 'eye-outline' : 'eye-off-outline'} size={26}/>
+          </TouchableOpacity>
         </View>
       </View>
-      <Pressable className="bg-[#128CB1] font-bold py-2 px-4 border border-black rounded mt-4 mx-28">
+      <Pressable className="bg-[#128CB1] font-bold py-2 px-4 border border-black rounded mt-4 mx-24">
         <Text className="text-white text-center font-bold">Ingresar</Text>
       </Pressable>
       <Pressable>
