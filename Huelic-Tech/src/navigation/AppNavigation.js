@@ -1,7 +1,7 @@
 import {createAppContainer} from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
 import SplashScreen from '@screens/SplashScreen'
-import LoginScreen from '@screens/LoginScreen'
+import {MainScreen} from '@screens/MainScreen' 
 
 const AppNavigation = createStackNavigator({
 
@@ -12,8 +12,8 @@ const AppNavigation = createStackNavigator({
         }
     },
 
-    Login:{
-        screen: LoginScreen,
+    Main:{
+        screen: MainScreen,
         navigationOptions:{
             headerShown: false,
         }
