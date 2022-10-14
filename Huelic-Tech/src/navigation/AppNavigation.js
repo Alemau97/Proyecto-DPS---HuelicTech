@@ -3,6 +3,7 @@ import { createStackNavigator } from 'react-navigation-stack'
 import SplashScreen from '@screens/SplashScreen'
 import {MainScreen} from '@screens/MainScreen' 
 import { RegisterScreen } from '@screens/RegisterScreen'
+import Header from '../layout/Header'
 
 
 const AppNavigation = createStackNavigator({
@@ -26,8 +27,13 @@ const AppNavigation = createStackNavigator({
             headerShown: false,
         }
     },
+    Header:{
+        screen: Header,
+        navigationOptions:{
+            headerShown: false,
+        }
+    }
 
 })
 
 export default createAppContainer(AppNavigation)
-export {AppNavigation}

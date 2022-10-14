@@ -82,7 +82,7 @@ export const MainScreen = ({navigation}) => {
           </TouchableOpacity>
         </View>
       </View>
-      <Pressable className="bg-[#128CB1] font-bold py-2 px-4 border border-black rounded mt-4 mx-20">
+      <Pressable onPress={()=>{navigation.navigate("Header")}} className="bg-[#128CB1] font-bold py-2 px-4 border border-black rounded mt-4 mx-20">
         <Text className="text-white text-center font-bold">Ingresar</Text>
       </Pressable>
       <Pressable onPress={() => {navigation.navigate("Register")}}>
