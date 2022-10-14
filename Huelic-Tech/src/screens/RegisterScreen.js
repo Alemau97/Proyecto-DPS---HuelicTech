@@ -12,8 +12,11 @@ import {
   ScrollView,
   Pressable,
 } from "react-native";
+import { NavigationContext } from "react-navigation";
 
-export const RegisterScreen = () => {
+export const RegisterScreen = ({navigation}) => {
+  const [show, setShow] = React.useState(false);
+  const [visible, setVisible] = React.useState(true);
   return (
     <View className="flex flex-1 bg-white justify-center px-12">
     <View className="flex justify-center items-center">

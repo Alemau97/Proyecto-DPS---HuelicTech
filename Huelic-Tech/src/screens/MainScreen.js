@@ -1,7 +1,8 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
-import {MaterialIcons} from '@expo/vector-icons'
-import {MaterialCommunityIcons} from '@expo/vector-icons'
+import { MaterialIcons } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import {AppNavigation} from "../navigation/AppNavigation";
 import {
   StyleSheet,
   Text,
@@ -11,9 +12,19 @@ import {
   TouchableOpacity,
   ScrollView,
   Pressable,
+  Alert,
 } from "react-native";
 
-export const MainScreen = () => {
+export const MainScreen = ({navigation}) => {
+  /*useEffect(() => {
+    setTimeout(
+      () => {
+        this.goToScreen("Register");
+      },
+      2000,
+      this
+    );
+  },[]);*/
   const [show, setShow] = React.useState(false);
   const [visible, setVisible] = React.useState(true);
 
@@ -36,7 +47,7 @@ export const MainScreen = () => {
             <Text className="text-[#128CB1] mt-1.5">Usuario</Text>
           </View>
           <TextInput
-          style = {styles.input}
+            style={styles.input}
             keyboardType="text"
             placeholder="Ingresar Correo"
             className="appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -51,24 +62,30 @@ export const MainScreen = () => {
             <Text className="text-[#128CB1] mt-1.5">Contraseña</Text>
           </View>
           <TextInput
-          style = {styles.input}
+            style={styles.input}
             secureTextEntry={visible}
             keyboardType="text"
             placeholder="Ingresar Contraseña"
             className="appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
-          <TouchableOpacity className="position absolute ml-60 top-11" onPress={()=> {
-            setVisible(!visible) 
-            setShow(!show)}
-            }>
-           <MaterialCommunityIcons name={show === false ? 'eye-outline' : 'eye-off-outline'} size={26}/>
+          <TouchableOpacity
+            className="position absolute ml-60 top-11"
+            onPress={() => {
+              setVisible(!visible);
+              setShow(!show);
+            }}
+          >
+            <MaterialCommunityIcons
+              name={show === false ? "eye-outline" : "eye-off-outline"}
+              size={26}
+            />
           </TouchableOpacity>
         </View>
       </View>
       <Pressable className="bg-[#128CB1] font-bold py-2 px-4 border border-black rounded mt-4 mx-20">
         <Text className="text-white text-center font-bold">Ingresar</Text>
       </Pressable>
-      <Pressable>
+      <Pressable onPress={() => {navigation.navigate("Register")}}>
         <Text className="text-base text-center text-[#128CB1] font-bold pt-10">
           ¿No tienes una cuenta? ¡Únete!
         </Text>
@@ -86,11 +103,10 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.46,
     shadowRadius: 11.14,
     elevation: 2,
-    backgroundColor: 'white',
+    backgroundColor: "white",
     borderRadius: 8,
-  }
+  },
 });
-
 
 /*export default class MainScreen extends Component {
   render() {
