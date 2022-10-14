@@ -36,9 +36,10 @@ export const MainScreen = () => {
             <Text className="text-[#128CB1] mt-1.5">Usuario</Text>
           </View>
           <TextInput
+          style = {styles.input}
             keyboardType="text"
             placeholder="Ingresar Correo"
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </View>
         <View className="pb-3">
@@ -50,12 +51,13 @@ export const MainScreen = () => {
             <Text className="text-[#128CB1] mt-1.5">Contraseña</Text>
           </View>
           <TextInput
+          style = {styles.input}
             secureTextEntry={visible}
             keyboardType="text"
             placeholder="Ingresar Contraseña"
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
-          <TouchableOpacity className="position absolute ml-64 top-11" onPress={()=> {
+          <TouchableOpacity className="position absolute ml-60 top-11" onPress={()=> {
             setVisible(!visible) 
             setShow(!show)}
             }>
@@ -63,7 +65,7 @@ export const MainScreen = () => {
           </TouchableOpacity>
         </View>
       </View>
-      <Pressable className="bg-[#128CB1] font-bold py-2 px-4 border border-black rounded mt-4 mx-24">
+      <Pressable className="bg-[#128CB1] font-bold py-2 px-4 border border-black rounded mt-4 mx-20">
         <Text className="text-white text-center font-bold">Ingresar</Text>
       </Pressable>
       <Pressable>
@@ -74,6 +76,21 @@ export const MainScreen = () => {
     </View>
   );
 };
+const styles = StyleSheet.create({
+  input: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 8,
+    },
+    shadowOpacity: 0.46,
+    shadowRadius: 11.14,
+    elevation: 2,
+    backgroundColor: 'white',
+    borderRadius: 8,
+  }
+});
+
 
 /*export default class MainScreen extends Component {
   render() {
