@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, StyleSheet, Text, SafeAreaView } from 'react-native';
+import { View, Image, StyleSheet, Text, SafeAreaView, TextInput } from 'react-native';
 import { Icon, SearchBar } from 'react-native-elements';
 
 export default function Navbar(){
@@ -13,24 +13,23 @@ export default function Navbar(){
           />
         </View>
         <View style={styles.menuContainer}>
-          <Icon name='menu' color='white' size={30}/>
+          <Icon name='menu' color='white' size={25}/>
         </View>
       </View>
       <View style={styles.bottomHeader}>
-        <View style={styles.searchBar}>
-          <SearchBar 
-            placeholder='Buscar'
-            showCancel
-            round
-            platform='android'
+        <View style={styles.searchBarContainer}>
+          <TextInput
+            style = {styles.searchBar}
+            keyboardType="text"
+            placeholder="Buscar..."
           />
         </View>
         <View style={styles.buttons}>
           <View>
-            <Icon name='person' color='black' size={30}/>
+            <Icon name='user' type='evilicon' color='black' size={35} style={styles.icons}/>
           </View>
           <View>
-            <Icon name='person' color='black' size={30}/>
+            <Icon name='cart' type='evilicon' color='black' size={35} style={styles.icons} />
           </View>
         </View>
       </View>
@@ -39,10 +38,19 @@ export default function Navbar(){
 };
 
 const styles = StyleSheet.create({
-  Header:{
+  Header: {
+    width: '100%',
+    height: 'auto',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.20,
+    shadowRadius: 1.41,
   },  
   TopHeader: {
     display: 'flex',
@@ -74,24 +82,39 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: 'blue',
     paddingTop: 5,
     paddingBottom: 5,
     padding: 20,
     width: '100%',
   },
+  searchBarContainer: {
+    padding: 0,
+    margin: '1%',
+    width: '73%',
+    height: 'auto',
+    borderRadius: 10,
+  },
   searchBar: {
-    backgroundColor: 'red',
-    padding: 2,
-    width: '75%'
+    width: '100%',
+    padding: 10,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: 'rgb(226, 232, 240)'
   },
   buttons: {
-    width: '20%',
-    padding: 2,
+    width: '23%',
+    padding: 5,
+    margin: '1%',
     backgroundColor: 'white',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  icons: {
+    padding: 5,
+    margin: '2%',
+    borderRadius: 10,
+    backgroundColor: 'rgb(248,250,252)'
   },
 });
