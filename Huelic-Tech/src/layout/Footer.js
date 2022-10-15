@@ -7,7 +7,7 @@ export default function Footer(){
     <>
       <SafeAreaView style={styles.container}>
         <View style={styles.footer}>
-          <TouchableHighlight onPress={() => {}}>
+          <TouchableHighlight onPress={() => {}} underlayColor='#128CB7'>
             <View 
               style={{flexDirection: 'column', padding: 5}}
               >
@@ -21,7 +21,7 @@ export default function Footer(){
                 <Text style={{color: 'white'}}>Home</Text>
             </View>
           </TouchableHighlight>
-          <TouchableHighlight onPress={() => {}}>
+          <TouchableHighlight onPress={() => {}} underlayColor='#128CB7'>
             <View 
               style={{flexDirection: 'column', padding: 5}}
               >
@@ -35,7 +35,7 @@ export default function Footer(){
                 <Text style={{color: 'white'}}>Componentes</Text>
             </View>
           </TouchableHighlight>
-          <TouchableHighlight onPress={() => {}}>
+          <TouchableHighlight onPress={() => {}} underlayColor='#128CB7'>
             <View 
               style={{flexDirection: 'column', padding: 5}}
               >
@@ -49,7 +49,7 @@ export default function Footer(){
                 <Text style={{color: 'white'}}>Accesorios</Text>
             </View>
           </TouchableHighlight>
-          <TouchableHighlight onPress={() => {}}>
+          <TouchableHighlight onPress={() => {}} underlayColor='#128CB7'>
             <View 
               style={{flexDirection: 'column', padding: 5}}
               >
