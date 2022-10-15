@@ -35,8 +35,8 @@ export const Componentes = () => {
   return (
     <>
       <Header />
-      <SafeAreaView>
-        <ScrollView style={styles.mainContainer}> 
+      <SafeAreaView style={styles.mainContainer}>
+        <ScrollView> 
           {
             data.map((data,key) => {
               return(
@@ -57,8 +57,7 @@ export const Componentes = () => {
 const styles = StyleSheet.create({
   mainContainer: {
     padding: 5,
-    display: 'flex',
-    flexDirection: 'column',
+    flex: 1,
     backgroundColor: 'rgb(226, 232, 240)'
   },
 });
