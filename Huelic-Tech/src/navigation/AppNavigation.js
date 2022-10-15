@@ -4,6 +4,7 @@ import SplashScreen from "@screens/SplashScreen";
 import { MainScreen } from "@screens/MainScreen";
 import { RegisterScreen } from "@screens/RegisterScreen";
 import { Homepage } from "@components/Homepage";
+import Prueba from "@components/Prueba";
 
 const AppNavigation = createStackNavigator({
   Splash: {
@@ -25,8 +26,17 @@ const AppNavigation = createStackNavigator({
       headerShown: false,
     },
   },
-  Header: {
+  Homepage: {
     screen: Homepage,
+    navigationOptions: {
+      headerShown: false,
+    },
+    params: {
+      name: "Huelic Boss",
+    },
+  },
+  Prueba: {
+    screen: Prueba,
     navigationOptions: {
       headerShown: false,
     },

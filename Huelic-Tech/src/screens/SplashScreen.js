@@ -1,7 +1,8 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { View, StatusBar } from "react-native";
 import * as Animatable from "react-native-animatable";
 import { imageBackgroundStyle } from "@styles/General";
+import { createStackNavigator } from "react-navigation-stack";
 
 export default class LoginScreen extends Component {
   goToScreen(routeName) {
@@ -11,7 +12,7 @@ export default class LoginScreen extends Component {
   componentDidMount() {
     setTimeout(
       () => {
-        this.goToScreen("Header");
+        this.goToScreen("Homepage");
       },
       2000,
       this
