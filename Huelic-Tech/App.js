@@ -6,6 +6,7 @@ import { Componentes } from "./src/screens/Componentes";
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Footer from "./src/layout/Footer";
+import { Contact } from "./src/screens/Contact";
 
 export default function App() {
   return (
