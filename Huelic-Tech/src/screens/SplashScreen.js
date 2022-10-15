@@ -12,7 +12,7 @@ export default class LoginScreen extends Component {
   componentDidMount() {
     setTimeout(
       () => {
-        this.goToScreen("Homepage");
+        this.goToScreen("Main");
       },
       2000,
       this
