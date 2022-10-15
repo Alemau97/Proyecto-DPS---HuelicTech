@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Image, StyleSheet, Text, SafeAreaView } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { CompsAcs } from '../components/CompsAcs';
+import Footer from '../layout/Footer';
 import Header from '../layout/Header';
 
 const data = [
@@ -50,6 +51,7 @@ export const Accesorios = () => {
           }
         </ScrollView>
       </SafeAreaView>
+      <Footer />
     </>
   )
 };
