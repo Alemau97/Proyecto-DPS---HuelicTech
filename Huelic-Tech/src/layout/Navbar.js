@@ -13,7 +13,7 @@ export default function Navbar(){
           />
         </View>
         <View style={styles.menuContainer}>
-          <Icon name='menu' color='white' size={30}/>
+          <Icon name='menu' color='black' size={30}/>
         </View>
       </View>
       <View style={styles.bottomHeader}>
@@ -26,11 +26,11 @@ export default function Navbar(){
           />
         </View>
         <View style={styles.buttons}>
-          <View>
+          <View onPress={() => { navigate("Main") }}>
             <Icon name='person' color='black' size={30}/>
           </View>
           <View>
-            <Icon name='person' color='black' size={30}/>
+            <Icon name='shopping-cart' color='black' size={30}/>
           </View>
         </View>
       </View>
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     height: 70,
   },
   menuContainer: {
-    backgroundColor: '#128CB1',
+    backgroundColor: '#fff',
     padding: 8,
     borderRadius: 10
   },
@@ -74,14 +74,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: 'blue',
+    backgroundColor: 'white',
     paddingTop: 5,
     paddingBottom: 5,
     padding: 20,
     width: '100%',
   },
   searchBar: {
-    backgroundColor: 'red',
+    backgroundColor: 'black',
+    borderColor:'red',
     padding: 2,
     width: '75%'
   },
@@ -91,7 +92,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
   },
 });

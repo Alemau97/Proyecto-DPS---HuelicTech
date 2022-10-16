@@ -8,8 +8,11 @@ import {
   TouchableWithoutFeedback,
   Alert,
 } from "react-native";
+import { NavigationContext } from "react-navigation";
 import { Card } from "react-native-elements";
 import Header from "../layout/Header";
+import Footer from "../layout/Footer"
+
 
 export const Homepage = () => {
   return (
@@ -17,7 +20,7 @@ export const Homepage = () => {
       <Header />
       <ScrollView>
         <View className=" flex flex-row flex-wrap py-6 bg-slate-200">
-          <TouchableWithoutFeedback>
+          <TouchableWithoutFeedback> 
             <Card containerStyle={styles.cardItem}>
               <Image
                 source={require("../images/compo2Menu.jpg")}
@@ -66,6 +69,7 @@ export const Homepage = () => {
           </TouchableWithoutFeedback>
         </View>
       </ScrollView>
+      <Footer/>
     </>
   );
 };
