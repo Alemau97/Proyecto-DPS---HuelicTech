@@ -13,10 +13,56 @@ import {
   Pressable,
 } from "react-native";
 import { NavigationContext } from "react-navigation";
+import * as Google from "expo-auth-session/providers/google";
+import * as WebBrowser from "expo-web-browser";
+import { ResponseType } from "expo-auth-session";
+import { initializeApp } from "firebase/app";
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithCredential,
+  onAuthStateChanged,
+} from "firebase/auth";
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'firebase/auth';
+import {firebase, firebaseConfig} from '../../firebase-config'
+
+
+initializeApp({
+  apiKey: "AIzaSyAnGkSxdldcrDT0zw40JddguEKOXeKi6KY",
+  authDomain: "huelictech.firebaseapp.com",
+  projectId: "huelictech",
+  storageBucket: "huelictech.appspot.com",
+  messagingSenderId: "492518106509",
+  appId: "1:492518106509:web:cc3c7f76d4cb43aaf589c4",
+});
+
+WebBrowser.maybeCompleteAuthSession();
+
 
 export const RegisterScreen = ({navigation}) => {
+
   const [show, setShow] = React.useState(false);
   const [visible, setVisible] = React.useState(true);
+
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app)
+   const handleCreateAccount = () => {
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      console.log('cuenta creada');
+      const user = userCredential.user;
+      console.log(user)
+      navigation.navigate("Homepage")
+    })
+    .catch(err => {
+      console.log(err)
+      Alert.alert(err.message)
+    })
+  }
+
   return (
     <View className="flex flex-1 bg-white justify-center px-12">
     <View className="flex justify-center items-center">
@@ -36,6 +82,7 @@ export const RegisterScreen = ({navigation}) => {
           <Text className="text-[#128CB1] mt-1.5">Usuario</Text>
         </View>
         <TextInput
+        onChangeText={(text) => setEmail(text)}
         style = {styles.input}
           keyboardType="text"
           placeholder="Ingresar Correo"
@@ -51,6 +98,7 @@ export const RegisterScreen = ({navigation}) => {
           <Text className="text-[#128CB1] mt-1.5">Contraseña</Text>
         </View>
         <TextInput
+        onChangeText={(text) => setPassword(text)}
         style = {styles.input}
           secureTextEntry={visible}
           keyboardType="text"
@@ -65,10 +113,10 @@ export const RegisterScreen = ({navigation}) => {
         </TouchableOpacity>
       </View>
     </View>
-    <Pressable className="bg-[#128CB1] font-bold py-2 px-4 border border-black rounded mt-4 mx-20">
+    <Pressable onPress={() => handleCreateAccount()} className="bg-[#128CB1] font-bold py-2 px-4 border border-black rounded mt-4 mx-15">
       <Text className="text-white text-center font-bold">Registrarse</Text>
     </Pressable>
-    <Pressable>
+    <Pressable onPress={() => {navigation.navigate("Main")}}>
       <Text className="text-base text-center text-[#128CB1] font-bold pt-10">
         ¿Ya tienes una cuenta? ¡Ingresa ya!
       </Text>

@@ -2,7 +2,7 @@ import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import SplashScreen from "@screens/SplashScreen";
 import  MainScreen  from "@screens/MainScreen";
-import { RegisterScreen } from "@screens/RegisterScreen";
+import  RegisterScreen  from "@screens/RegisterScreen";
 import { Homepage } from "@components/Homepage";
 import Prueba from "@components/Prueba";
 

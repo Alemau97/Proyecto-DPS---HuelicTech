@@ -24,6 +24,9 @@ import {
   signInWithCredential,
   onAuthStateChanged,
 } from "firebase/auth";
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'firebase/auth';
+import {firebase, firebaseConfig} from '../../firebase-config'
+
 
 initializeApp({
   apiKey: "AIzaSyAnGkSxdldcrDT0zw40JddguEKOXeKi6KY",
@@ -63,6 +66,21 @@ export default function MainScreen({ navigation: { navigate } }) {
   const [show, setShow] = React.useState(false);
   const [visible, setVisible] = React.useState(true);
 
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app)
+
+  const handleSignIn = () => {
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+        console.log('Te logeaste')
+        const user = userCredential.user;
+        console.log(user)
+        navigate("Homepage")
+    })
+  }
   return (
     <View className="flex flex-1 bg-white justify-center px-12">
       <View className="flex justify-center items-center">
@@ -82,6 +100,7 @@ export default function MainScreen({ navigation: { navigate } }) {
             <Text className="text-[#128CB1] mt-1.5">Usuario</Text>
           </View>
           <TextInput
+            onChangeText={(text) => setEmail(text)}
             style={styles.input}
             keyboardType="text"
             placeholder="Ingresar Correo"
@@ -97,6 +116,7 @@ export default function MainScreen({ navigation: { navigate } }) {
             <Text className="text-[#128CB1] mt-1.5">Contraseña</Text>
           </View>
           <TextInput
+          onChangeText={(text) => setPassword(text)}
             style={styles.input}
             secureTextEntry={visible}
             keyboardType="text"
@@ -117,7 +137,7 @@ export default function MainScreen({ navigation: { navigate } }) {
           </TouchableOpacity>
         </View>
       </View>
-      <Pressable className="bg-[#128CB1] font-bold py-2 px-4 border border-black rounded mt-4 mx-20">
+      <Pressable onPress={() => handleSignIn()} className="bg-[#128CB1] font-bold py-2 px-4 border border-black rounded mt-4 mx-15">
         <Text className="text-white text-center font-bold">Ingresar</Text>
       </Pressable>
 
