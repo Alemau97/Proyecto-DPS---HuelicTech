@@ -2,10 +2,10 @@
 
 //INTEGRANTES
 
-Portillo Martínez, Carlos Emerson PM191144
-Martínez Nerio, Mauricio Alejandro MN190349
-Aguilar Panameño, David Alexander AP190139
-Amaya Ramírez, David Elías AR190019
+- Portillo Martínez, Carlos Emerson PM191144
+- Martínez Nerio, Mauricio Alejandro MN190349
+- Aguilar Panameño, David Alexander AP190139
+- Amaya Ramírez, David Elías AR190019
 
 
 //LINK TRELLO
