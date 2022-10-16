@@ -1,13 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import AppNavigation from "./src/navigation/AppNavigation";
+import Header from "./src/layout/Header";
 
 export default function App() {
-  return (
-    <View>
-    <Text>Hola</Text>
-    <Text>Hola</Text>
-    </View>
-  );
+  return <AppNavigation />;
 }
-
 
