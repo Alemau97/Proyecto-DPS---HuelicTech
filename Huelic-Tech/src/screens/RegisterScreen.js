@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component,useEffect, useRef } from "react";
 import { StatusBar } from "expo-status-bar";
 import {MaterialIcons} from '@expo/vector-icons'
 import {MaterialCommunityIcons} from '@expo/vector-icons'
@@ -11,6 +11,7 @@ import {
   TouchableOpacity,
   ScrollView,
   Pressable,
+  Animated
 } from "react-native";
 import { NavigationContext } from "react-navigation";
 import * as Google from "expo-auth-session/providers/google";
@@ -37,6 +38,63 @@ initializeApp({
 });
 
 WebBrowser.maybeCompleteAuthSession();
+//codigo para mensajes - inicio
+const getMessage = () => {
+  return 'No se permiten campos vacios';
+};
+
+const Message = (props) => {
+  const opacity = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    Animated.sequence([
+      Animated.timing(opacity, {
+        toValue: 1,
+        duration: 500,
+        useNativeDriver: true,
+      }),
+      Animated.delay(2000),
+      Animated.timing(opacity, {
+        toValue: 0,
+        duration: 500,
+        useNativeDriver: true,
+      }),
+    ]).start(() => {
+      props.onHide();
+    });
+  }, []);
+
+  return (
+    <Animated.View
+      style={{
+        opacity,
+        transform: [{
+          translateY: opacity.interpolate({
+            inputRange: [0, 1],
+            outputRange: [-20, 0],
+          })
+        }],
+        margin: 10,
+        marginBottom: 5,
+        backgroundColor: 'red',
+        padding: 10,
+        borderRadius: 4,
+        shadowColor: 'black',
+        shadowOffset: {
+          width: 0,
+          height: 3,
+        },
+        shadowOpacity: 0.15,
+        shadowRadius: 5,
+        elevation: 6
+      }}
+    >
+      <Text style={{textAlign:"center",color: "white"}}> {props.message} </Text>
+
+    </Animated.View>
+  )
+}
+//codigo para mensajes - FIN
 
 
 export const RegisterScreen = ({navigation}) => {
@@ -46,6 +104,9 @@ export const RegisterScreen = ({navigation}) => {
 
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
+
+  //const para mensajes
+  const [messages, setMessages] = React.useState([]);
 
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app)
@@ -63,8 +124,40 @@ export const RegisterScreen = ({navigation}) => {
     })
   }
 
+   //validaciones de input
+   const  Validar = () => {
+    if ([email,password].includes('')) {
+      const message = getMessage();
+      setMessages([...messages, message]);
+  }
+     
+  }
+
   return (
     <View className="flex flex-1 bg-white justify-center px-12">
+      <View
+        style={{
+          position: 'absolute',
+          top: 45,
+          left: 0,
+          right: 0,
+        }}
+      >
+        {messages.map((message) => (
+          <Message
+            key={message}
+            message={message}
+            onHide={() => {
+              setMessages((messages) =>
+                messages.filter(
+                  (currentMessage) =>
+                    currentMessage !== message
+                )
+              );
+            }}
+          />
+        ))}
+      </View>
     <View className="flex justify-center items-center">
       <Image
         className=""
@@ -113,7 +206,10 @@ export const RegisterScreen = ({navigation}) => {
         </TouchableOpacity>
       </View>
     </View>
-    <Pressable onPress={() => handleCreateAccount()} className="bg-[#128CB1] font-bold py-2 px-4 border border-black rounded mt-4 mx-15">
+    <Pressable onPress={() => {
+      handleCreateAccount();
+      Validar();
+      }} className="bg-[#128CB1] font-bold py-2 px-4 border border-black rounded mt-4 mx-15">
       <Text className="text-white text-center font-bold">Registrarse</Text>
     </Pressable>
     <Pressable onPress={() => {navigation.navigate("Main")}}>

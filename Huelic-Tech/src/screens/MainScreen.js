@@ -1,8 +1,8 @@
-import React, { Component, useEffect } from "react";
+import React, { Component, useEffect, useRef } from "react";
 import { StatusBar } from "expo-status-bar";
 import { MaterialIcons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import {AppNavigation} from "../navigation/AppNavigation";
+import { AppNavigation } from "../navigation/AppNavigation";
 import {
   StyleSheet,
   Text,
@@ -13,6 +13,7 @@ import {
   ScrollView,
   Pressable,
   Alert,
+  Animated
 } from "react-native";
 import * as Google from "expo-auth-session/providers/google";
 import * as WebBrowser from "expo-web-browser";
@@ -24,8 +25,8 @@ import {
   signInWithCredential,
   onAuthStateChanged,
 } from "firebase/auth";
-import {createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'firebase/auth';
-import {firebase, firebaseConfig} from '../../firebase-config'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { firebase, firebaseConfig } from '../../firebase-config'
 
 
 initializeApp({
@@ -38,6 +39,63 @@ initializeApp({
 });
 
 WebBrowser.maybeCompleteAuthSession();
+//codigo para mensajes - inicio
+const getMessage = () => {
+  return 'No se permiten campos vacios';
+};
+
+const Message = (props) => {
+  const opacity = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    Animated.sequence([
+      Animated.timing(opacity, {
+        toValue: 1,
+        duration: 500,
+        useNativeDriver: true,
+      }),
+      Animated.delay(2000),
+      Animated.timing(opacity, {
+        toValue: 0,
+        duration: 500,
+        useNativeDriver: true,
+      }),
+    ]).start(() => {
+      props.onHide();
+    });
+  }, []);
+
+  return (
+    <Animated.View
+      style={{
+        opacity,
+        transform: [{
+          translateY: opacity.interpolate({
+            inputRange: [0, 1],
+            outputRange: [-20, 0],
+          })
+        }],
+        margin: 10,
+        marginBottom: 5,
+        backgroundColor: 'red',
+        padding: 10,
+        borderRadius: 4,
+        shadowColor: 'black',
+        shadowOffset: {
+          width: 0,
+          height: 3,
+        },
+        shadowOpacity: 0.15,
+        shadowRadius: 5,
+        elevation: 6
+      }}
+    >
+      <Text style={{textAlign:"center",color: "white"}}> {props.message} </Text>
+
+    </Animated.View>
+  )
+}
+//codigo para mensajes - FIN
 
 
 export default function MainScreen({ navigation: { navigate } }) {
@@ -68,21 +126,56 @@ export default function MainScreen({ navigation: { navigate } }) {
 
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
+//const para mensajes
+  const [messages, setMessages] = React.useState([]);
 
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app)
 
   const handleSignIn = () => {
     signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
+      .then((userCredential) => {
         console.log('Te logeaste')
         const user = userCredential.user;
         console.log(user)
         navigate("Homepage")
-    })
+      })
+  }
+  //validaciones de input
+  const  Validar = () => {
+    if ([email,password].includes('')) {
+      const message = getMessage();
+      setMessages([...messages, message]);
+  }
+     
   }
   return (
     <View className="flex flex-1 bg-white justify-center px-12">
+      
+      <View
+        style={{
+          position: 'absolute',
+          top: 45,
+          left: 0,
+          right: 0,
+        }}
+      >
+        {messages.map((message) => (
+          <Message
+            key={message}
+            message={message}
+            onHide={() => {
+              setMessages((messages) =>
+                messages.filter(
+                  (currentMessage) =>
+                    currentMessage !== message
+                )
+              );
+            }}
+          />
+        ))}
+      </View>
+
       <View className="flex justify-center items-center">
         <Image
           className=""
@@ -116,7 +209,7 @@ export default function MainScreen({ navigation: { navigate } }) {
             <Text className="text-[#128CB1] mt-1.5">Contraseña</Text>
           </View>
           <TextInput
-          onChangeText={(text) => setPassword(text)}
+            onChangeText={(text) => setPassword(text)}
             style={styles.input}
             secureTextEntry={visible}
             keyboardType="text"
@@ -137,14 +230,18 @@ export default function MainScreen({ navigation: { navigate } }) {
           </TouchableOpacity>
         </View>
       </View>
-      <Pressable onPress={() => handleSignIn()} className="bg-[#128CB1] font-bold py-2 px-4 border border-black rounded mt-4 mx-15">
+      <Pressable onPress={() => {
+        handleSignIn();
+        Validar();
+
+      }} className="bg-[#128CB1] font-bold py-2 px-4 border border-black rounded mt-4 mx-15">
         <Text className="text-white text-center font-bold">Ingresar</Text>
       </Pressable>
 
       <Pressable
-       onPress={() => promptAsync()}
-      className="font-bold py-2 px-4 border border-black rounded mt-4 mx-15">
-        <View className ="flex flex-row justify-center align-middle">
+        onPress={() => promptAsync()}
+        className="font-bold py-2 px-4 border border-black rounded mt-4 mx-15">
+        <View className="flex flex-row justify-center align-middle">
           <Image
             className="mt-1 mx-2"
             style={{ width: 15, height: 15 }}
@@ -154,7 +251,7 @@ export default function MainScreen({ navigation: { navigate } }) {
         </View>
       </Pressable>
 
-      <Pressable onPress={() => {navigate("Register")}}>
+      <Pressable onPress={() => { navigate("Register") }}>
         <Text className="text-base text-center text-[#128CB1] font-bold pt-10">
           ¿No tienes una cuenta? ¡Únete!
         </Text>
