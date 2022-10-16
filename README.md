@@ -20,11 +20,11 @@ https://www.figma.com/file/jzfmDVbiGWvgQBZYWIyo6s/Untitled?node-id=0%3A1
 
 https://github.com/Alemau97/Proyecto-DPS---HuelicTech/blob/main/Archivos/HuelicTech%20Fase%201.pdf
 
-// MANUAL DE USAUARIO
+// MANUAL DE USUARIO
 
 https://www.canva.com/design/DAFPKVlw-NE/T0eIAzx6OREINamHxQydxA/edit?utm_content=DAFPKVlw-NE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
-// MANUAL TECNICO
+// MANUAL TÉCNICO
 
 https://www.canva.com/design/DAFPKiqE3S8/-T8RbUObe65CrnrfIDnf0g/edit?utm_content=DAFPKiqE3S8&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
