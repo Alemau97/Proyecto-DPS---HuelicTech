@@ -20,6 +20,14 @@ https://www.figma.com/file/jzfmDVbiGWvgQBZYWIyo6s/Untitled?node-id=0%3A1
 
 https://github.com/Alemau97/Proyecto-DPS---HuelicTech/blob/main/Archivos/HuelicTech%20Fase%201.pdf
 
+// MANUAL DE USAUARIO
+
+https://www.canva.com/design/DAFPKVlw-NE/T0eIAzx6OREINamHxQydxA/edit?utm_content=DAFPKVlw-NE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
+// MANUAL TECNICO
+
+https://www.canva.com/design/DAFPKiqE3S8/-T8RbUObe65CrnrfIDnf0g/edit?utm_content=DAFPKiqE3S8&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
 //LICENCIAS CREATIVE COMMONS
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />Este obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">licencia de Creative Commons Reconocimiento-NoComercial 4.0 Internacional</a>.
