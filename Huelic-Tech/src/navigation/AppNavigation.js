@@ -1,56 +1,55 @@
 import React from "react";
-import {createNativeStackNavigator} from "@react-navigation/native-stack";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 //screens
 import SplashScreen from "@screens/SplashScreen";
-import  MainScreen  from "@screens/MainScreen";
-import  {RegisterScreen}  from "@screens/RegisterScreen";
-import { Homepage } from "@components/Homepage";
- 
+import MainScreen from "@screens/MainScreen";
+import { RegisterScreen } from "@screens/RegisterScreen";
+
+import Tabs from "../layout/Tabs";
+import { Componentes } from "../screens/Componentes";
+import { Accesorios } from "../screens/Accesorios";
+
 const HomeStackNavigator = createNativeStackNavigator();
 
-function MyStack(){
-  return(
-    <HomeStackNavigator.Navigator
-      initialRouteName="Splash"
-    >
-      <HomeStackNavigator.Screen 
+function MyStack() {
+  return (
+    <HomeStackNavigator.Navigator initialRouteName="Splash">
+      <HomeStackNavigator.Screen
         name="Splash"
         component={SplashScreen}
         options={{
-          headerShown:false
+          headerShown: false,
         }}
-        />
-         <HomeStackNavigator.Screen 
+      />
+      <HomeStackNavigator.Screen
         name="Main"
         component={MainScreen}
         options={{
-          headerShown:false
+          headerShown: false,
         }}
-        />
-         <HomeStackNavigator.Screen 
+      />
+      <HomeStackNavigator.Screen
         name="Register"
         component={RegisterScreen}
         options={{
-          headerShown:false
+          headerShown: false,
         }}
-        />
-         <HomeStackNavigator.Screen 
-        name="Homepage"
-        component={Homepage}
+      />
+      <HomeStackNavigator.Screen
+        name="Tabs"
+        component={Tabs}
         options={{
-          headerShown:false
+          headerShown: false,
         }}
-        />
-        
+      />
     </HomeStackNavigator.Navigator>
-
-  )
+  );
 }
-export default function AppNavigation(){
-  return(
+export default function AppNavigation() {
+  return (
     <NavigationContainer>
-      <MyStack/>
+      <MyStack />
     </NavigationContainer>
   );
 }

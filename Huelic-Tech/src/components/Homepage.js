@@ -11,16 +11,20 @@ import {
 import { NavigationContext } from "react-navigation";
 import { Card } from "react-native-elements";
 import Header from "../layout/Header";
-import Footer from "../layout/Footer"
-
+import { createStackNavigator } from "@react-navigation/stack";
+import { useNavigation } from "@react-navigation/native";
 
 export const Homepage = () => {
+  const navigation = useNavigation();
+
   return (
     <>
       <Header />
       <ScrollView>
         <View className=" flex flex-row flex-wrap py-6 bg-slate-200">
-          <TouchableWithoutFeedback> 
+          <TouchableWithoutFeedback
+            onPress={() => navigation.navigate("Componentes")}
+          >
             <Card containerStyle={styles.cardItem}>
               <Image
                 source={require("../images/compo2Menu.jpg")}
@@ -29,7 +33,9 @@ export const Homepage = () => {
               <Text style={styles.cardLabel}>Componentes</Text>
             </Card>
           </TouchableWithoutFeedback>
-          <TouchableWithoutFeedback>
+          <TouchableWithoutFeedback
+            onPress={() => navigation.navigate("Accesorios")}
+          >
             <Card containerStyle={styles.cardItem}>
               <Image
                 source={require("../images/accesoriosMenu.jpg")}
@@ -69,7 +75,6 @@ export const Homepage = () => {
           </TouchableWithoutFeedback>
         </View>
       </ScrollView>
-      <Footer/>
     </>
   );
 };
