@@ -1,6 +1,5 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { NavigationContainer } from "@react-navigation/native";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { StyleSheet } from "react-native";
 
@@ -13,7 +12,16 @@ const Tab = createBottomTabNavigator();
 
 function HomeTabs() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      screenOptions={{
+        tabBarActiveTintColor: "#FFF",
+        tabBarActiveBackgroundColor: "#128CB1",
+        tabBarLabelStyle: {
+          fontSize: 12,
+          marginBottom: 4,
+        },
+      }}
+    >
       <Tab.Screen
         name="Homescreen"
         component={Homepage}

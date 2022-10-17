@@ -13,7 +13,7 @@ import {
   ScrollView,
   Pressable,
   Alert,
-  Animated
+  Animated,
 } from "react-native";
 import * as Google from "expo-auth-session/providers/google";
 import * as WebBrowser from "expo-web-browser";
@@ -25,9 +25,11 @@ import {
   signInWithCredential,
   onAuthStateChanged,
 } from "firebase/auth";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
-import { firebase, firebaseConfig } from '../../firebase-config'
-
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { firebase, firebaseConfig } from "../../firebase-config";
 
 initializeApp({
   apiKey: "AIzaSyAnGkSxdldcrDT0zw40JddguEKOXeKi6KY",
@@ -41,7 +43,7 @@ initializeApp({
 WebBrowser.maybeCompleteAuthSession();
 //codigo para mensajes - inicio
 const getMessage = () => {
-  return 'No se permiten campos vacios';
+  return "No se permiten campos vacios";
 };
 
 const Message = (props) => {
@@ -69,37 +71,39 @@ const Message = (props) => {
     <Animated.View
       style={{
         opacity,
-        transform: [{
-          translateY: opacity.interpolate({
-            inputRange: [0, 1],
-            outputRange: [-20, 0],
-          })
-        }],
+        transform: [
+          {
+            translateY: opacity.interpolate({
+              inputRange: [0, 1],
+              outputRange: [-20, 0],
+            }),
+          },
+        ],
         margin: 10,
         marginBottom: 5,
-        backgroundColor: 'red',
+        backgroundColor: "red",
         padding: 10,
         borderRadius: 4,
-        shadowColor: 'black',
+        shadowColor: "black",
         shadowOffset: {
           width: 0,
           height: 3,
         },
         shadowOpacity: 0.15,
         shadowRadius: 5,
-        elevation: 6
+        elevation: 6,
       }}
     >
-      <Text style={{textAlign:"center",color: "white"}}> {props.message} </Text>
-
+      <Text style={{ textAlign: "center", color: "white" }}>
+        {" "}
+        {props.message}{" "}
+      </Text>
     </Animated.View>
-  )
-}
+  );
+};
 //codigo para mensajes - FIN
 
-
 export default function MainScreen({ navigation: { navigate } }) {
-
   const [request, response, promptAsync] = Google.useIdTokenAuthRequest({
     clientId:
       "492518106509-phgcgespc5o85v00rp62t8epsefbhril.apps.googleusercontent.com",
@@ -115,6 +119,7 @@ export default function MainScreen({ navigation: { navigate } }) {
         if (user) {
           let name = user.displayName;
           console.log(name);
+          navigate("Tabs");
         } else {
         }
       });
@@ -124,37 +129,34 @@ export default function MainScreen({ navigation: { navigate } }) {
   const [show, setShow] = React.useState(false);
   const [visible, setVisible] = React.useState(true);
 
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
-//const para mensajes
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  //const para mensajes
   const [messages, setMessages] = React.useState([]);
 
   const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app)
+  const auth = getAuth(app);
 
   const handleSignIn = () => {
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        console.log('Te logeaste')
-        const user = userCredential.user;
-        console.log(user)
-        navigate("Homepage")
-      })
-  }
+    signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
+      console.log("Te logeaste");
+      const user = userCredential.user;
+      console.log(user);
+      navigate("Tabs");
+    });
+  };
   //validaciones de input
-  const  Validar = () => {
-    if ([email,password].includes('')) {
+  const Validar = () => {
+    if ([email, password].includes("")) {
       const message = getMessage();
       setMessages([...messages, message]);
-  }
-     
-  }
+    }
+  };
   return (
     <View className="flex flex-1 bg-white justify-center px-12">
-      
       <View
         style={{
-          position: 'absolute',
+          position: "absolute",
           top: 45,
           left: 0,
           right: 0,
@@ -166,10 +168,7 @@ export default function MainScreen({ navigation: { navigate } }) {
             message={message}
             onHide={() => {
               setMessages((messages) =>
-                messages.filter(
-                  (currentMessage) =>
-                    currentMessage !== message
-                )
+                messages.filter((currentMessage) => currentMessage !== message)
               );
             }}
           />
@@ -230,35 +229,44 @@ export default function MainScreen({ navigation: { navigate } }) {
           </TouchableOpacity>
         </View>
       </View>
-      <Pressable onPress={() => {
-        handleSignIn();
-        Validar();
-
-      }} className="bg-[#128CB1] font-bold py-2 px-4 border border-black rounded mt-4 mx-15">
+      <Pressable
+        onPress={() => {
+          handleSignIn();
+          Validar();
+        }}
+        className="bg-[#128CB1] font-bold py-2 px-4 border border-black rounded mt-4 mx-15"
+      >
         <Text className="text-white text-center font-bold">Ingresar</Text>
       </Pressable>
 
       <Pressable
         onPress={() => promptAsync()}
-        className="font-bold py-2 px-4 border border-black rounded mt-4 mx-15">
+        className="font-bold py-2 px-4 border border-black rounded mt-4 mx-15"
+      >
         <View className="flex flex-row justify-center align-middle">
           <Image
             className="mt-1 mx-2"
             style={{ width: 15, height: 15 }}
             source={require("../images/IconGoogle.png")}
           />
-          <Text className="text-center m-0.5 font-bold">Ingresar con google</Text>
+          <Text className="text-center m-0.5 font-bold">
+            Ingresar con google
+          </Text>
         </View>
       </Pressable>
 
-      <Pressable onPress={() => { navigate("Register") }}>
+      <Pressable
+        onPress={() => {
+          navigate("Register");
+        }}
+      >
         <Text className="text-base text-center text-[#128CB1] font-bold pt-10">
           ¿No tienes una cuenta? ¡Únete!
         </Text>
       </Pressable>
     </View>
   );
-};
+}
 const styles = StyleSheet.create({
   input: {
     shadowColor: "#000",
@@ -273,5 +281,3 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
 });
-
-

@@ -13,10 +13,10 @@ import { Icon } from "react-native-elements";
 import Footer from "../layout/Footer";
 import Header from "../layout/Header";
 
-const fa = "https://www.google.com/?hl=es";
-const wha = "https://www.google.com/?hl=es";
-const call = "https://www.google.com/?hl=es";
-const mail = "https://www.google.com/?hl=es";
+const fa = "https://www.facebook.com/profile.php?id=100086685017713";
+const wha = "50371470021";
+const call = "+503 74241060";
+const mail = "huelictech2022@gmail.com";
 
 export const Contacto = () => {
   const openUrl = async (url) => {
@@ -70,7 +70,9 @@ export const Contacto = () => {
           </TouchableHighlight>
           <TouchableHighlight
             onPress={() => {
-              openUrl(wha);
+              Linking.openURL(
+                `whatsapp://send?text=Hola necesito información&phone=${wha}`
+              );
             }}
             underlayColor="transparent"
           >
@@ -96,7 +98,7 @@ export const Contacto = () => {
           </TouchableHighlight>
           <TouchableHighlight
             onPress={() => {
-              openUrl(call);
+              openUrl(`tel: ${call}`);
             }}
             underlayColor="transparent"
           >
@@ -117,12 +119,12 @@ export const Contacto = () => {
                 size={25}
                 style={styles.icons}
               />
-              <Text style={{ color: "black", padding: 5 }}>LLámanos</Text>
+              <Text style={{ color: "black", padding: 5 }}>Llámanos</Text>
             </View>
           </TouchableHighlight>
           <TouchableHighlight
             onPress={() => {
-              openUrl(mail);
+              openUrl(`mailto: ${mail}`);
             }}
             underlayColor="transparent"
           >

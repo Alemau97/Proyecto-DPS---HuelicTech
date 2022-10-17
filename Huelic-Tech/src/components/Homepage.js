@@ -8,11 +8,10 @@ import {
   TouchableWithoutFeedback,
   Alert,
 } from "react-native";
-import { NavigationContext } from "react-navigation";
 import { Card } from "react-native-elements";
 import Header from "../layout/Header";
-import { createStackNavigator } from "@react-navigation/stack";
 import { useNavigation } from "@react-navigation/native";
+import MyCarousel from "./MyCarousel";
 
 export const Homepage = () => {
   const navigation = useNavigation();
@@ -21,7 +20,7 @@ export const Homepage = () => {
     <>
       <Header />
       <ScrollView>
-        <View className=" flex flex-row flex-wrap py-6 bg-slate-200">
+        <View className=" flex flex-row flex-wrap py-2 bg-slate-200">
           <TouchableWithoutFeedback
             onPress={() => navigation.navigate("Componentes")}
           >
@@ -73,6 +72,7 @@ export const Homepage = () => {
               <Text style={styles.cardLabel}>Nuevos Productos</Text>
             </Card>
           </TouchableWithoutFeedback>
+          <MyCarousel />
         </View>
       </ScrollView>
     </>
