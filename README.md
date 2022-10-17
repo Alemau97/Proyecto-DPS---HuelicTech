@@ -28,6 +28,9 @@ https://www.canva.com/design/DAFPKVlw-NE/T0eIAzx6OREINamHxQydxA/edit?utm_content
 
 https://www.canva.com/design/DAFPKiqE3S8/-T8RbUObe65CrnrfIDnf0g/edit?utm_content=DAFPKiqE3S8&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
+// VIDEO EXPLICATIVO DEL FUNCIONAMIENTO DE LA APP
+https://drive.google.com/file/d/1jSjt1yq0XqJModyNwGctzXb0OrJbSLfI/view?usp=sharing
+
 //LICENCIAS CREATIVE COMMONS
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />Este obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">licencia de Creative Commons Reconocimiento-NoComercial 4.0 Internacional</a>.
