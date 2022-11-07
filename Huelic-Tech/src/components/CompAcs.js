@@ -1,10 +1,17 @@
 import React from "react";
-import { View, Image, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { View, Image, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 export const CompsAcs = (props) => {
+
+  const navigation = useNavigation();
+
   return (
     <>
-      <TouchableOpacity style={styles.buttons} activeOpacity={0.8}>
+      <TouchableOpacity 
+        style={styles.buttons}
+        onPress={()=>navigation.navigate(`${props.dirigir}`)}
+        >
         <View style={styles.imgContainer}>
           <Image source={props.img} style={styles.img} />
         </View>

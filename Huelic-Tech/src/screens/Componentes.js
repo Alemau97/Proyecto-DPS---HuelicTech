@@ -3,6 +3,7 @@ import { View, Image, StyleSheet, Text, SafeAreaView } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { CompsAcs } from "../components/CompAcs";
 import { NavigationContext } from "react-navigation";
+import { useNavigation } from "@react-navigation/native";
 
 import Footer from "../layout/Footer";
 import Header from "../layout/Header";
@@ -34,14 +35,22 @@ const data = [
   },
 ];
 
-export const Componentes = ({ navigation }) => {
+const pressable = ["Motherboards", "Procesadores","RAM","Discos","Fuentes","Graficas"];
+
+export const Componentes = () => {
+
   return (
     <>
       <Header />
       <SafeAreaView style={styles.mainContainer}>
         <ScrollView>
           {data.map((data, key) => {
-            return <CompsAcs key={key} img={data.img} title={data.title} />;
+            return <CompsAcs 
+                    key={key} 
+                    img={data.img} 
+                    title={data.title} 
+                    dirigir={pressable[key]}
+                    />;
           })}
         </ScrollView>
       </SafeAreaView>

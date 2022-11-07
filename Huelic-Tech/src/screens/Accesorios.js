@@ -34,6 +34,8 @@ const data = [
   },
 ];
 
+const pressable = ["Perifericos", "Sillas","Luces","Mantenimiento","Audio","Soportes"];
+
 export const Accesorios = ({ navigation }) => {
   return (
     <>
@@ -41,7 +43,12 @@ export const Accesorios = ({ navigation }) => {
       <SafeAreaView style={styles.mainContainer}>
         <ScrollView>
           {data.map((data, key) => {
-            return <CompsAcs key={key} img={data.img} title={data.title} />;
+            return <CompsAcs 
+                      key={key} 
+                      img={data.img} 
+                      title={data.title} 
+                      dirigir={pressable[key]} 
+                      />;
           })}
         </ScrollView>
       </SafeAreaView>

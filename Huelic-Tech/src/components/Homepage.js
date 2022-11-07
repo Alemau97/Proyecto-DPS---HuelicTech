@@ -19,8 +19,8 @@ export const Homepage = () => {
   return (
     <>
       <Header />
-      <ScrollView>
-        <View className=" flex flex-row flex-wrap py-2 bg-slate-200">
+      <View style={styles.mainContainer}>
+        <View className=" flex flex-row flex-wrap py-2 bg-slate-200" style={{height: '100%', justifyContent: 'space-between', alignItems: 'center'}}>
           <TouchableWithoutFeedback
             onPress={() => navigation.navigate("Componentes")}
           >
@@ -52,7 +52,9 @@ export const Homepage = () => {
               <Text style={styles.cardLabel}>Cotización</Text>
             </Card>
           </TouchableWithoutFeedback>
-          <TouchableWithoutFeedback>
+          <TouchableWithoutFeedback
+            onPress={() => navigation.navigate("NuevosProductos")}
+          >
             <Card containerStyle={styles.cardItem}>
               <Image
                 source={require("../images/newIcon.png")}
@@ -74,7 +76,7 @@ export const Homepage = () => {
           </TouchableWithoutFeedback>
           <MyCarousel />
         </View>
-      </ScrollView>
+      </View>
     </>
   );
 };
@@ -98,4 +100,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     fontWeight: "600",
   },
+  mainContainer: {
+    flex: 1
+  }
 });

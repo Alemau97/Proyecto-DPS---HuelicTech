@@ -157,6 +157,7 @@ export const Contacto = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: 70
   },
   linking: {
     padding: 10,

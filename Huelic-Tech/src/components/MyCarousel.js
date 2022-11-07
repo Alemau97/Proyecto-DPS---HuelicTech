@@ -1,5 +1,5 @@
 import React from "react";
-import { View } from "react-native";
+import { View, StyleSheet } from "react-native";
 import Carousel from "react-native-snap-carousel";
 import CarouselItem from "./CarouselItem";
 
@@ -19,7 +19,7 @@ const MyCarousel = () => {
   const isCarousel = React.useRef(null);
 
   return (
-    <View>
+    <View style={styles.container}>
       <Carousel
         layout="default"
         ref={isCarousel}
@@ -27,11 +27,21 @@ const MyCarousel = () => {
         renderItem={CarouselItem}
         inactiveSlideShift={0}
         useScrollView={true}
-        sliderWidth={360}
-        itemWidth={360}
+        sliderWidth={400}
+        itemWidth={400}
+        style = {styles.carousel}
       />
     </View>
   );
 };
 
 export default MyCarousel;
+
+const styles = StyleSheet.create({
+  container: {
+    width: '100%',
+    paddingTop: 20,
+    paddingHorizontal: 'auto',
+    paddingLeft: 'auto'
+  },
+})
