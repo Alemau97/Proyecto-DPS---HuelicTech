@@ -7,67 +7,51 @@ import { Modall } from './Modall';
 
 const icon = [
   {
-    img: require("../images/accesorios/luces.jpg"),
-    title: 'Luces lud'
+    img: require("../images/accesorios/Luces/Luz.jpeg"),
+    title: 'Tira Led Usb'
   },
   {
-    img: require("../images/accesorios/luces.jpg"),
-    title: 'Luces lud'
+    img: require("../images/accesorios/Luces/Luz2.jpeg"),
+    title: 'Aro Led Multicolor'
   },
   {
-    img: require("../images/accesorios/luces.jpg"),
-    title: 'Luces lud'
+    img: require("../images/accesorios/Luces/Luz3.jpeg"),
+    title: 'Tiras Led Smart Marca Nitebird'
   },
   {
-    img: require("../images/accesorios/luces.jpg"),
-    title: 'Luces lud'
-  },
-  {
-    img: require("../images/accesorios/luces.jpg"),
-    title: 'Luces lud'
-  },
-  {
-    img: require("../images/accesorios/luces.jpg"),
-    title: 'Luces lud'
+    img: require("../images/accesorios/Luces/Luz4.jpeg"),
+    title: '2 Pack Bombillo Led Nexxt Inteligente Br 30 Blanco'
   },
 ]
 
 const modal = [
   {
-    name: 'Producto 1',
-    brand: 'Marca 1',
-    descp: 'Descripcion 1',
-    volver: 'Ver luces led'
+    name: 'Tira Led Usb',
+    brand: 'Cas',
+    descp: 'Tira led rgb 50/50, 5 metros, salida usb',
+    volver: 'Ver luces led',
+    precio: '$18.00'
   },
   {
-    name: 'Producto 2',
-    brand: 'Marca 2',
-    descp: 'Descripcion 2',
-    volver: 'Ver luces led'
+    name: 'Aro Led Multicolor',
+    brand: 'Ars',
+    descp: 'Aro led 10 pulgadas, Multicolor, soporte para celular, tripode incluido ',
+    volver: 'Ver luces led',
+    precio: '$25.00'
   },
   {
-    name: 'Producto 3',
-    brand: 'Marca 3',
-    descp: 'Descripcion 3',
-    volver: 'Ver luces led'
+    name: 'Tiras Led Smart Marca Nitebird',
+    brand: 'Ars',
+    descp: 'Luces led multi color de 5 mts marca nitebird. controla las luces desde tu celular, programa horarios automatizados o controla por medio de comandos de voz utilizando alexa o google.',
+    volver: 'Ver luces led',
+    precio: '$35.00'
   },
   {
-    name: 'Producto 4',
-    brand: 'Marca 4',
-    descp: 'Descripcion 4',
-    volver: 'Ver luces led'
-  },
-  {
-    name: 'Producto 5',
-    brand: 'Marca 5',
-    descp: 'Descripcion 5',
-    volver: 'Ver luces led'
-  },
-  {
-    name: 'Producto 6',
-    brand: 'Marca 6',
-    descp: 'Descripcion 6',
-    volver: 'Ver luces led'
+    name: '2 Pack Bombillo Led Nexxt Inteligente Br 30 Blanco',
+    brand: 'Nexxt',
+    descp: 'Crea espacios cautivantes al seleccionar el nivel óptimo de luminosidad a cualquier hora del día. controla las luces de tu hogar en forma remota con el sonido de voz, o con tu dispositivo inteligente, desde dondequiera que estés.',
+    volver: 'Ver luces led',
+    precio: '$33.50'
   },
 ]
 
@@ -77,25 +61,28 @@ export const Luces = () => {
     <>
       <Header />
       <View style={styles.mainContainer}>
-        <View style={styles.container}>
-          {
-            icon.map((data, key)=>{
-              return(
-                <View style={styles.sections} key={key}>
-                  <Modall 
-                    img = {data.img}
-                    title = {data.title}
-                    nombre = {modal[key].name}
-                    marca = {modal[key].brand}
-                    descp = {modal[key].descp}
-                    volver = {modal[key].volver}
-                  />
-                </View>
-              )
-            })
-          }
+      <View>
+          <ScrollView contentContainerStyle={styles.container}>
+            {
+              icon.map((data, key)=>{
+                return(
+                  <View style={styles.sections} key={key}>
+                    <Modall 
+                      img = {data.img}
+                      title = {data.title}
+                      nombre = {modal[key].name}
+                      marca = {modal[key].brand}
+                      descp = {modal[key].descp}
+                      volver = {modal[key].volver}
+                      precio = {modal[key].precio}
+                    />
+                  </View>
+                )
+              })
+            }
+          </ScrollView>
         </View>
-      </View>
+        </View>
     </>
   )
 }
