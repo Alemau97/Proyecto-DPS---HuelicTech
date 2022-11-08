@@ -30,28 +30,28 @@ const modal = [
     brand: 'XTREME',
     descp: 'Soporta 50kg, Soporta pulgadas 13-32',
     volver: 'Ver soportes',
-    Precio: '$45'
+    precio: '$45'
   },
   {
     name: 'SOPORTE PARA MONITOR Y LAPTOP CON TORNILO DE PRESION KLIP XTREME KMM-301',
     brand: 'XTREME',
     descp: 'Para laptop y monitor, soporta 48kg',
     volver: 'Ver soportes',
-    Precio: '$67'
+    precio: '$67'
   },
   {
     name: 'SOPORTE PARA MONITOR TV CON TORNILO DE PRESION KLIP XTREME KPM300 VESA 13-32',
     brand: 'XTREME',
     descp: 'Para un único monitor, 13-32", soporta 30kg',
     volver: 'Ver soportes',
-    Precio: '$40'
+    precio: '$40'
   },
   {
     name: 'SOPORTE GAMING PARA AURICULARES MAXELL W/USB HUB CA-HS ',
     brand: 'MAXELL',
     descp: 'SOPORTE PARA AURICULARES GAMING RGB Compacto y ligero para una facil portabilidad, Iluminacion RGB con 7 tipos de efectos, 4 Puertos USB ',
     volver: 'Ver soportes',
-    Precio: '$20'
+    precio: '$20'
   },
 ]
 
