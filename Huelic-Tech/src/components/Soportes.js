@@ -7,67 +7,51 @@ import { Modall } from './Modall';
 
 const icon = [
   {
-    img: require("../images/accesorios/soporte.jpg"),
-    title: 'Soportes'
+    img: require("../images/accesorios/Soporte/soporte1.jpeg"),
+    title: 'SOPORTE DOBLE PARA MONITOR CON TORNILO DE PRESION TV KLIP XTREME KPM310'
   },
   {
-    img: require("../images/accesorios/soporte.jpg"),
-    title: 'Soportes'
+    img: require("../images/accesorios/Soporte/soporte2.jpeg"),
+    title: 'SOPORTE PARA MONITOR Y LAPTOP CON TORNILO DE PRESION KLIP XTREME KMM-301'
   },
   {
-    img: require("../images/accesorios/soporte.jpg"),
-    title: 'Soportes'
+    img: require("../images/accesorios/Soporte/soporte3.jpeg"),
+    title: 'SOPORTE PARA MONITOR TV CON TORNILO DE PRESION KLIP XTREME KPM300'
   },
   {
-    img: require("../images/accesorios/soporte.jpg"),
-    title: 'Soportes'
-  },
-  {
-    img: require("../images/accesorios/soporte.jpg"),
-    title: 'Soportes'
-  },
-  {
-    img: require("../images/accesorios/soporte.jpg"),
-    title: 'Soportes'
+    img: require("../images/accesorios/Soporte/soporte4.jpeg"),
+    title: 'SOPORTE GAMING PARA AURICULARES MAXELL'
   },
 ]
 
 const modal = [
   {
-    name: 'Producto 1',
-    brand: 'Marca 1',
-    descp: 'Descripcion 1',
-    volver: 'Ver soportes'
+    name: 'SOPORTE DOBLE PARA MONITOR CON TORNILO DE PRESION TV KLIP XTREME KPM310 VESA 13-32',
+    brand: 'XTREME',
+    descp: 'Soporta 50kg, Soporta pulgadas 13-32',
+    volver: 'Ver soportes',
+    Precio: '$45'
   },
   {
-    name: 'Producto 2',
-    brand: 'Marca 2',
-    descp: 'Descripcion 2',
-    volver: 'Ver soportes'
+    name: 'SOPORTE PARA MONITOR Y LAPTOP CON TORNILO DE PRESION KLIP XTREME KMM-301',
+    brand: 'XTREME',
+    descp: 'Para laptop y monitor, soporta 48kg',
+    volver: 'Ver soportes',
+    Precio: '$67'
   },
   {
-    name: 'Producto 3',
-    brand: 'Marca 3',
-    descp: 'Descripcion 3',
-    volver: 'Ver soportes'
+    name: 'SOPORTE PARA MONITOR TV CON TORNILO DE PRESION KLIP XTREME KPM300 VESA 13-32',
+    brand: 'XTREME',
+    descp: 'Para un único monitor, 13-32", soporta 30kg',
+    volver: 'Ver soportes',
+    Precio: '$40'
   },
   {
-    name: 'Producto 4',
-    brand: 'Marca 4',
-    descp: 'Descripcion 4',
-    volver: 'Ver soportes'
-  },
-  {
-    name: 'Producto 5',
-    brand: 'Marca 5',
-    descp: 'Descripcion 5',
-    volver: 'Ver soportes'
-  },
-  {
-    name: 'Producto 6',
-    brand: 'Marca 6',
-    descp: 'Descripcion 6',
-    volver: 'Ver soportes'
+    name: 'SOPORTE GAMING PARA AURICULARES MAXELL W/USB HUB CA-HS ',
+    brand: 'MAXELL',
+    descp: 'SOPORTE PARA AURICULARES GAMING RGB Compacto y ligero para una facil portabilidad, Iluminacion RGB con 7 tipos de efectos, 4 Puertos USB ',
+    volver: 'Ver soportes',
+    Precio: '$20'
   },
 ]
 
@@ -77,23 +61,26 @@ export const Soportes = () => {
     <>
       <Header />
       <View style={styles.mainContainer}>
-        <View style={styles.container}>
-          {
-            icon.map((data, key)=>{
-              return(
-                <View style={styles.sections} key={key}>
-                  <Modall 
-                    img = {data.img}
-                    title = {data.title}
-                    nombre = {modal[key].name}
-                    marca = {modal[key].brand}
-                    descp = {modal[key].descp}
-                    volver = {modal[key].volver}
-                  />
-                </View>
-              )
-            })
-          }
+      <View>
+          <ScrollView contentContainerStyle={styles.container}>
+            {
+              icon.map((data, key)=>{
+                return(
+                  <View style={styles.sections} key={key}>
+                    <Modall 
+                      img = {data.img}
+                      title = {data.title}
+                      nombre = {modal[key].name}
+                      marca = {modal[key].brand}
+                      descp = {modal[key].descp}
+                      volver = {modal[key].volver}
+                      precio = {modal[key].precio}
+                    />
+                  </View>
+                )
+              })
+            }
+          </ScrollView>
         </View>
       </View>
     </>

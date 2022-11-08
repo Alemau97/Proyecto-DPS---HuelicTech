@@ -8,67 +8,51 @@ import { Menus } from './Menus';
 
 const icon = [
   {
-    img: require("../images/accesorios/webcam.jpg"),
-    title: 'Audio y visuales'
+    img: require("../images/accesorios/AudioVideo/audio.jpeg"),
+    title: 'SISTEMA DE TRANSMISION INALAMBRICA DE MICROFONOS MAONO WM820'
   },
   {
-    img: require("../images/accesorios/webcam.jpg"),
-    title: 'Audio y visuales'
+    img: require("../images/accesorios/AudioVideo/audio2.jpeg"),
+    title: 'MICROFONO DOBLE MAONO AU-200 3.5MM'
   },
   {
-    img: require("../images/accesorios/webcam.jpg"),
-    title: 'Audio y visuales'
+    img: require("../images/accesorios/AudioVideo/audio3.jpeg"),
+    title: 'Camara Web Con Led'
   },
   {
-    img: require("../images/accesorios/webcam.jpg"),
-    title: 'Audio y visuales'
-  },
-  {
-    img: require("../images/accesorios/webcam.jpg"),
-    title: 'Audio y visuales'
-  },
-  {
-    img: require("../images/accesorios/webcam.jpg"),
-    title: 'Audio y visuales'
+    img: require("../images/accesorios/AudioVideo/audio4.jpeg"),
+    title: 'PARLANTES FANTECH SONAR GS202 USB 2.0'
   },
 ]
 
 const modal = [
   {
-    name: 'Producto 1',
-    brand: 'Marca 1',
-    descp: 'Descripcion 1',
-    volver: 'Ver audiovisuales'
+    name: 'SISTEMA DE TRANSMISION INALAMBRICA DE MICROFONOS MAONO WM820',
+    brand: 'MAONO',
+    descp: 'Micrófono Lavalier inalámbrico compacto, micrófonos de doble solapa de 2.4 GHz con monitoreo en tiempo real, ajuste de ganancia y silencio para entrevistas, vlogging, transmisión en vivo, teléfono, cámara (WM820 A1)',
+    volver: 'Ver audiovisuales',
+    precio: '$119'
   },
   {
-    name: 'Producto 2',
-    brand: 'Marca 2',
-    descp: 'Descripcion 2',
-    volver: 'Ver audiovisuales'
+    name: 'MICROFONO DOBLE MAONO AU-200 3.5MM',
+    brand: 'MAONO',
+    descp: 'Lavalier Micrófono MAONO Profesional Omnidireccional Doble Cabeza Clip en Entrevista Micrófono para Grabación, Conferencia, Podcast, Compatible con iPhone, iPad, Android, Cámara, PC, Ordenador, AU200',
+    volver: 'Ver audiovisuales',
+    precio: '$19.95'
   },
   {
-    name: 'Producto 3',
-    brand: 'Marca 3',
-    descp: 'Descripcion 3',
-    volver: 'Ver audiovisuales'
+    name: 'Camara Web Con Led',
+    brand: 'MAONO',
+    descp: 'Camara web con microfono HD salida usb y auxiliar',
+    volver: 'Ver audiovisuales',
+    precio: '$15.00'
   },
   {
-    name: 'Producto 4',
-    brand: 'Marca 4',
-    descp: 'Descripcion 4',
-    volver: 'Ver audiovisuales'
-  },
-  {
-    name: 'Producto 5',
-    brand: 'Marca 5',
-    descp: 'Descripcion 5',
-    volver: 'Ver audiovisuales'
-  },
-  {
-    name: 'Producto 6',
-    brand: 'Marca 6',
-    descp: 'Descripcion 6',
-    volver: 'Ver audiovisuales'
+    name: 'PARLANTES FANTECH SONAR GS202 USB 2.0',
+    brand: 'FANTECH',
+    descp: 'Altavoz portátil USB2.0 > Unidad de controlador de 45 mm > Iluminación RGB',
+    volver: 'Ver audiovisuales',
+    precio: '$21.30'
   },
 ]
 
@@ -78,23 +62,26 @@ export const Audio = () => {
     <>
       <Header />
       <View style={styles.mainContainer}>
-        <View style={styles.container}>
-          {
-            icon.map((data, key)=>{
-              return(
-                <View style={styles.sections} key={key}>
-                  <Modall 
-                    img = {data.img}
-                    title = {data.title}
-                    nombre = {modal[key].name}
-                    marca = {modal[key].brand}
-                    descp = {modal[key].descp}
-                    volver = {modal[key].volver}
-                  />
-                </View>
-              )
-            })
-          }
+      <View>
+          <ScrollView contentContainerStyle={styles.container}>
+            {
+              icon.map((data, key)=>{
+                return(
+                  <View style={styles.sections} key={key}>
+                    <Modall 
+                      img = {data.img}
+                      title = {data.title}
+                      nombre = {modal[key].name}
+                      marca = {modal[key].brand}
+                      descp = {modal[key].descp}
+                      volver = {modal[key].volver}
+                      precio = {modal[key].precio}
+                    />
+                  </View>
+                )
+              })
+            }
+          </ScrollView>
         </View>
       </View>
     </>

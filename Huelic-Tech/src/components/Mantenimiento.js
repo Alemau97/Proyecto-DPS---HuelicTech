@@ -7,67 +7,73 @@ import { Modall } from './Modall';
 
 const icon = [
   {
-    img: require("../images/accesorios/kit.png"),
-    title: 'Kits de limpieza'
+    img: require("../images/accesorios/mantenimiento/mante1.jpeg"),
+    title: 'AIRE COMPRIMIDO BLOW OFF'
   },
   {
-    img: require("../images/accesorios/kit.png"),
-    title: 'Kits de limpieza'
+    img: require("../images/accesorios/mantenimiento/mante2.jpeg"),
+    title: 'LIMPIADOR DE CONTACTOS CRC'
   },
   {
-    img: require("../images/accesorios/kit.png"),
-    title: 'Kits de limpieza'
+    img: require("../images/accesorios/mantenimiento/mante3.jpeg"),
+    title: 'PASTA TERMICA ARCTIC MX-4'
   },
   {
-    img: require("../images/accesorios/kit.png"),
-    title: 'Kits de limpieza'
+    img: require("../images/accesorios/mantenimiento/mante4.jpeg"),
+    title: 'PASTA TERMICA GRIZZLY KYONAUT'
   },
   {
-    img: require("../images/accesorios/kit.png"),
-    title: 'Kits de limpieza'
+    img: require("../images/accesorios/mantenimiento/mante5.jpeg"),
+    title: 'PULSERA ANTIESTATICA LEKO'
   },
   {
-    img: require("../images/accesorios/kit.png"),
-    title: 'Kits de limpieza'
+    img: require("../images/accesorios/mantenimiento/mante6.jpeg"),
+    title: 'CEPILLO ANTIESTATICA ASHATA'
   },
 ]
 
 const modal = [
   {
-    name: 'Producto 1',
-    brand: 'Marca 1',
-    descp: 'Descripcion 1',
-    volver: 'Ver kits de limpieza'
+    name: 'AIRE COMPRIMIDO BLOW OFF',
+    brand: 'Blow Off',
+    descp: 'Blow Off es un limpiador todo en uno estirilizado que puede ser utilizado tanto en oficinas como en el hogar. Perfecto para computadoras, impresoras, camaras y más.',
+    volver: 'Ver kits de limpieza',
+    precio: '$6.95'
   },
   {
-    name: 'Producto 2',
-    brand: 'Marca 2',
-    descp: 'Descripcion 2',
-    volver: 'Ver kits de limpieza'
+    name: 'LIMPIADOR DE CONTACTOS CRC',
+    brand: 'CRC',
+    descp: 'Presentación en aerosol de 4.5 onzas, elimina aceite, grasa y suciedad. Secado rápido sin dejar marca.',
+    volver: 'Ver kits de limpieza',
+    precio: '$8.95'
   },
   {
-    name: 'Producto 3',
-    brand: 'Marca 3',
-    descp: 'Descripcion 3',
-    volver: 'Ver kits de limpieza'
+    name: 'PASTA TERMICA ARCTIC MX-4',
+    brand: 'Arctic',
+    descp: 'Pasta termica Arctic de 4 gramos, durabilidad de 8 años, viscosidad de 870 poise.',
+    volver: 'Ver kits de limpieza',
+    precio: '$11.00'
   },
   {
-    name: 'Producto 4',
-    brand: 'Marca 4',
-    descp: 'Descripcion 4',
-    volver: 'Ver kits de limpieza'
+    name: 'PASTA TERMICA GRIZZLY KYONAUT',
+    brand: 'Grizzly',
+    descp: 'Pasta termica Grizzly de 1 gramos, viscosidad 120-170 poise.',
+    volver: 'Ver kits de limpieza',
+    precio: '$9.50'
   },
   {
-    name: 'Producto 5',
-    brand: 'Marca 5',
-    descp: 'Descripcion 5',
-    volver: 'Ver kits de limpieza'
+    name: 'PULSERA ANTIESTATICA LEKO',
+    brand: 'Leko',
+    descp: 'Pulsera para enviar las cargas estáticas del cuerpo a tierra física, para manejar sin riesgo componentes electrónicos delicados, tales como circuitos CMOS o tarjetas de computadora y televisión.',
+    volver: 'Ver kits de limpieza',
+    precio: '$7.99'
   },
   {
-    name: 'Producto 6',
-    brand: 'Marca 6',
-    descp: 'Descripcion 6',
-    volver: 'Ver kits de limpieza'
+    name: 'CEPILLO ANTIESTATICA ASHATA',
+    brand: 'Ashata',
+    descp: 'Hecho de nailon antiestático para mayor durabilidad, adecuado para placas base y placas PCB, kit de cepillos portátiles.',
+    volver: 'Ver kits de limpieza',
+    precio: '$14.99'
   },
 ]
 
@@ -77,23 +83,26 @@ export const Mantenimiento = () => {
     <>
       <Header />
       <View style={styles.mainContainer}>
-        <View style={styles.container}>
-          {
-            icon.map((data, key)=>{
-              return(
-                <View style={styles.sections} key={key}>
-                  <Modall 
-                    img = {data.img}
-                    title = {data.title}
-                    nombre = {modal[key].name}
-                    marca = {modal[key].brand}
-                    descp = {modal[key].descp}
-                    volver = {modal[key].volver}
-                  />
-                </View>
-              )
-            })
-          }
+      <View>
+          <ScrollView contentContainerStyle={styles.container}>
+            {
+              icon.map((data, key)=>{
+                return(
+                  <View style={styles.sections} key={key}>
+                    <Modall 
+                      img = {data.img}
+                      title = {data.title}
+                      nombre = {modal[key].name}
+                      marca = {modal[key].brand}
+                      descp = {modal[key].descp}
+                      volver = {modal[key].volver}
+                      precio = {modal[key].precio}
+                    />
+                  </View>
+                )
+              })
+            }
+          </ScrollView>
         </View>
       </View>
     </>
