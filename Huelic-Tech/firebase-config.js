@@ -1,10 +1,9 @@
- 
 export const firebaseConfig = {
-  apiKey: "AIzaSyAnGkSxdldcrDT0zw40JddguEKOXeKi6KY",
-  authDomain: "huelictech.firebaseapp.com",
-  projectId: "huelictech",
-  storageBucket: "huelictech.appspot.com",
-  messagingSenderId: "492518106509",
-  appId: "1:492518106509:web:cc3c7f76d4cb43aaf589c4"
+  apiKey: "AIzaSyCkFAd0MprrUh2SzUG642koMXimoOV8Kr8",
+  authDomain: "huelictechbd.firebaseapp.com",
+  projectId: "huelictechbd",
+  storageBucket: "huelictechbd.appspot.com",
+  messagingSenderId: "1010914003632",
+  appId: "1:1010914003632:web:82f024703bc5e021f3c975",
+  measurementId: "G-GYQD9C3QDT",
 };
- 

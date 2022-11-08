@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import {
   View,
   Image,
@@ -8,12 +8,13 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { Icon, SearchBar } from "react-native-elements";
-import { Button, Menu, Provider } from 'react-native-paper';
+import { Button, Menu, Provider } from "react-native-paper";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Navbar() {
-
   const [visible, setVisible] = useState(false);
-  
+  const navigation = useNavigation();
+
   const closeMenu = () => setVisible(false);
   const openMenu = () => setVisible(true);
 
