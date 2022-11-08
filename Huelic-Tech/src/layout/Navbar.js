@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   View,
   Image,
@@ -8,11 +8,15 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { Icon, SearchBar } from "react-native-elements";
-import { useNavigation } from "@react-navigation/native";
-import { Shadow } from "react-native-shadow-2";
+import { Button, Menu, Provider } from 'react-native-paper';
 
 export default function Navbar() {
-  const navigation = useNavigation();
+
+  const [visible, setVisible] = useState(false);
+  
+  const closeMenu = () => setVisible(false);
+  const openMenu = () => setVisible(true);
+
   return (
     <View style={styles.Header}>
       <View style={styles.TopHeader}>
@@ -28,13 +32,15 @@ export default function Navbar() {
       </View>
       <View style={styles.bottomHeader}>
         <View style={styles.searchBar}>
-          <SearchBar
+          {/** 
+            <SearchBar
             placeholder="Buscar"
             showCancel
             round
             platform="android"
             inputContainerStyle={styles.searchBarInputContainer}
           />
+          */}
         </View>
         <View style={styles.buttons}>
           <TouchableOpacity

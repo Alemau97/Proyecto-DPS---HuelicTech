@@ -22,6 +22,8 @@ import { Mantenimiento } from "../components/Mantenimiento";
 import { Audio } from "../components/Audio";
 import { Soportes } from "../components/Soportes";
 import { NuevosProductos } from "../components/NuevosProductos";
+import { Homepage } from "../components/Homepage";
+import { Contacto } from "../screens/Contacto";
 
 const HomeStackNavigator = createNativeStackNavigator();
 
@@ -143,6 +145,34 @@ function MyStack() {
       <HomeStackNavigator.Screen
         name="NuevosProductos"
         component={NuevosProductos}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <HomeStackNavigator.Screen
+        name="Home"
+        component={Homepage}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <HomeStackNavigator.Screen
+        name="Componentes"
+        component={Componentes}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <HomeStackNavigator.Screen
+        name="Accesorios"
+        component={Accesorios}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <HomeStackNavigator.Screen
+        name="Contacto"
+        component={Contacto}
         options={{
           headerShown: false,
         }}

@@ -4,6 +4,7 @@ import { ScrollView } from "react-native-gesture-handler";
 import Header from '../layout/Header';
 import { Card } from "react-native-elements";
 import { Modall } from './Modall';
+import { Menus } from './Menus';
 
 const icon = [
   {

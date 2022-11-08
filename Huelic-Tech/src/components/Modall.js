@@ -6,7 +6,7 @@ import { Card } from "react-native-elements";
 
 
 
-export const Modall = ({nombre,marca,descp,img,title,volver}) => {
+export const Modall = ({nombre,marca,descp,img,title,volver,precio}) => {
 
     const [modalVisible, setModalVisible] = useState(false);
 
@@ -23,9 +23,10 @@ export const Modall = ({nombre,marca,descp,img,title,volver}) => {
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <View>
-              <Text style={styles.modalText}>{nombre}</Text>
-              <Text style={styles.modalText}>{marca}</Text>
-              <Text style={styles.modalText}>{descp}</Text>
+              <Text style={styles.modalText}>Nombre: {nombre}</Text>
+              <Text style={styles.modalText}>Marca: {marca}</Text>
+              <Text style={styles.modalText}>Descripción: {descp}</Text>
+              <Text style={styles.modalText}>Precio: {precio}</Text>
             </View>
               <Pressable
                 style={[styles.button, styles.buttonClose]}
@@ -78,7 +79,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   cardLabel: {
-    textAlign: "center",
+    textAlign: "justify",
     fontSize: 14,
     marginTop: 10,
     fontWeight: "600",

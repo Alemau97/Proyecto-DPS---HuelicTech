@@ -101,6 +101,7 @@ const styles = StyleSheet.create({
     fontWeight: "600",
   },
   mainContainer: {
-    flex: 1
+    flex: 1,
+    elevation: -1
   }
 });

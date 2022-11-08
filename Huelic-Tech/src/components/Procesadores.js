@@ -7,67 +7,73 @@ import { Modall } from './Modall';
 
 const icon = [
   {
-    img: require("../images/components/procesador.jpg"),
-    title: 'Procesador'
+    img: require("../images/components/procesadores/celeron.jpeg"),
+    title: 'PROCESADOR INTEL CELERON G6900'
   },
   {
-    img: require("../images/components/procesador.jpg"),
-    title: 'Procesador'
+    img: require("../images/components/procesadores/i5.jpeg"),
+    title: 'PROCESADOR INTEL CORE i5 11400f'
   },
   {
-    img: require("../images/components/procesador.jpg"),
-    title: 'Procesador'
+    img: require("../images/components/procesadores/i9.jpeg"),
+    title: 'PROCESADOR INTEL CORE i9 12900K'
   },
   {
-    img: require("../images/components/procesador.jpg"),
-    title: 'Procesador'
+    img: require("../images/components/procesadores/R5.jpeg"),
+    title: 'PROCESADOR AMD RYZEN 5 4600G'
   },
   {
-    img: require("../images/components/procesador.jpg"),
-    title: 'Procesador'
+    img: require("../images/components/procesadores/R57000.jpeg"),
+    title: 'PROCESADOR AMD RYZEN 5 7600X'
   },
   {
-    img: require("../images/components/procesador.jpg"),
-    title: 'Procesador'
+    img: require("../images/components/procesadores/R9.jpeg"),
+    title: 'PROCESADOR AMD RYZEN 9 7900X'
   },
 ]
 
 const modal = [
   {
-    name: 'Producto 1',
-    brand: 'Marca 1',
-    descp: 'Descripcion 1',
-    volver: 'Ver más procesadores'
+    name: 'PROCESADOR INTEL CELERON G6900 ',
+    brand: 'INTEL',
+    descp: 'No descripción',
+    volver: 'Ver más procesadores',
+    precio: '$79.95',
   },
   {
-    name: 'Producto 2',
-    brand: 'Marca 2',
-    descp: 'Descripcion 2',
-    volver: 'Ver más procesadores'
+    name: 'PROCESADOR INTEL CORE i5 11400f',
+    brand: 'INTEL',
+    descp: 'Especificaciones de la CPU Cantidad de núcleos 6 Cantidad de subprocesos 12 Frecuencia básica del procesador 2,60 GHz Frecuencia turbo máxima 4,40 GHz Caché 12 MB Intel® Smart Cache Velocidad del bus 8 GT/s Frecuencia de la Tecnología Intel® Turbo Boost 2.0',
+    volver: 'Ver más procesadores',
+    precio: '$229.00',
   },
   {
-    name: 'Producto 3',
-    brand: 'Marca 3',
-    descp: 'Descripcion 3',
-    volver: 'Ver más procesadores'
+    name: 'PROCESADOR INTEL CORE i9 12900K',
+    brand: 'INTEL',
+    descp: 'No descripción',
+    volver: 'Ver más procesadores',
+    precio: '$849.00',
   },
   {
-    name: 'Producto 4',
-    brand: 'Marca 4',
-    descp: 'Descripcion 4',
-    volver: 'Ver más procesadores'
+    name: 'PROCESADOR AMD RYZEN 5 4600G',
+    brand: 'AMD RYZEN',
+    descp: 'No descripción',
+    volver: 'Ver más procesadores',
+    precio: '$199.00',
   },
   {
-    name: 'Producto 5',
-    brand: 'Marca 5',
-    descp: 'Descripcion 5',
-    volver: 'Ver más procesadores'
+    name: 'PROCESADOR AMD RYZEN 5 7600X',
+    brand: 'AMD RYZEN',
+    descp: 'No descripción',
+    volver: 'Ver más procesadores',
+    precio: '$369.00',
   },
   {
-    name: 'Producto 6',
-    brand: 'Marca 6',
-    descp: 'Descripcion 6',
-    volver: 'Ver más procesadores'
+    name: 'PROCESADOR AMD RYZEN 9 7900X',
+    brand: 'AMD RYZEN',
+    descp: 'No descripción',
+    volver: 'Ver más procesadores',
+    precio: '$679.00',
   },
 ]
 
@@ -77,23 +83,26 @@ export const Procesadores = () => {
     <>
       <Header />
       <View style={styles.mainContainer}>
-        <View style={styles.container}>
-          {
-            icon.map((data, key)=>{
-              return(
-                <View style={styles.sections} key={key}>
-                  <Modall 
-                    img = {data.img}
-                    title = {data.title}
-                    nombre = {modal[key].name}
-                    marca = {modal[key].brand}
-                    descp = {modal[key].descp}
-                    volver = {modal[key].volver}
-                  />
-                </View>
-              )
-            })
-          }
+      <View>
+          <ScrollView contentContainerStyle={styles.container}>
+            {
+              icon.map((data, key)=>{
+                return(
+                  <View style={styles.sections} key={key}>
+                    <Modall 
+                      img = {data.img}
+                      title = {data.title}
+                      nombre = {modal[key].name}
+                      marca = {modal[key].brand}
+                      descp = {modal[key].descp}
+                      volver = {modal[key].volver}
+                      precio = {modal[key].precio}
+                    />
+                  </View>
+                )
+              })
+            }
+          </ScrollView>
         </View>
       </View>
     </>

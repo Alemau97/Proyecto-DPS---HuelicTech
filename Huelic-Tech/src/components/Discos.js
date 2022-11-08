@@ -7,67 +7,73 @@ import { Modall } from './Modall';
 
 const icon = [
   {
-    img: require("../images/components/ssd.jpg"),
-    title: 'Disco duro'
+    img: require("../images/components/Almacenamiento/SEAGATE.jpeg"),
+    title: 'DISCO DURO DE PC SEAGATE 1TB ST1000DM010'
   },
   {
-    img: require("../images/components/ssd.jpg"),
-    title: 'Disco duro'
+    img: require("../images/components/Almacenamiento/SEAGATE2.jpeg"),
+    title: 'DISCO DURO DE PC SEAGATE BARRACUDA 4TB ST4000DM004'
   },
   {
-    img: require("../images/components/ssd.jpg"),
-    title: 'Disco duro'
+    img: require("../images/components/Almacenamiento/KINGSTONDISC.jpeg"),
+    title: 'DISCO SOLIDO SSD KINGSTON 480GB A400 2.5 SA400S37'
   },
   {
-    img: require("../images/components/ssd.jpg"),
-    title: 'Disco duro'
+    img: require("../images/components/Almacenamiento/ADATA.jpeg"),
+    title: 'DISCO DE ESTADO SOLIDO SSD ADATA SU650 960GB'
   },
   {
-    img: require("../images/components/ssd.jpg"),
-    title: 'Disco duro'
+    img: require("../images/components/Almacenamiento/KINGSTONM2.jpeg"),
+    title: 'UNIDAD DE ALMACENAMIENTO M.2 KINGSTON 500GB NV1 SNVS/500G'
   },
   {
-    img: require("../images/components/ssd.jpg"),
-    title: 'Disco duro'
+    img: require("../images/components/Almacenamiento/XPGM2.jpeg"),
+    title: 'UNIDAD DE ALMACENAMIENTO M.2 XPG SPECTRIX S20G 1TB RGB'
   },
 ]
 
 const modal = [
   {
-    name: 'Producto 1',
-    brand: 'Marca 1',
-    descp: 'Descripcion 1',
-    volver: 'Ver almacenamiento'
+    name: 'DISCO DURO DE PC SEAGATE 1TB ST1000DM010',
+    brand: 'SEAGATE',
+    descp: 'No descripción',
+    volver: 'Ver más procesadores',
+    precio: '$55.00',
   },
   {
-    name: 'Producto 2',
-    brand: 'Marca 2',
-    descp: 'Descripcion 2',
-    volver: 'Ver almacenamiento'
+    name: 'DISCO DURO DE PC SEAGATE BARRACUDA 4TB ST4000DM004',
+    brand: 'SEAGATE',
+    descp: 'SEAGATE BARRACUDA  4TB Sata  ST4000DM004  56mb cache  5.4krpm  DISCO DURO DE PC',
+    volver: 'Ver más procesadores',
+    precio: '$129.00',
   },
   {
-    name: 'Producto 3',
-    brand: 'Marca 3',
-    descp: 'Descripcion 3',
-    volver: 'Ver almacenamiento'
+    name: 'DISCO SOLIDO SSD KINGSTON 480GB A400 2.5 SA400S37',
+    brand: 'KINGSTON',
+    descp: 'Arranques, cargas y transferencias de archivos todos con mayor rapidez Más fiable y duradera que las unidades de disco duro 500MB/s en lectura, 320MB/s en escritura',
+    volver: 'Ver más procesadores',
+    precio: '$45.00',
   },
   {
-    name: 'Producto 4',
-    brand: 'Marca 4',
-    descp: 'Descripcion 4',
-    volver: 'Ver almacenamiento'
+    name: 'DISCO DE ESTADO SOLIDO SSD ADATA SU650 960GB',
+    brand: 'ADATA',
+    descp: 'No descripción',
+    volver: 'Ver más procesadores',
+    precio: '$129.00',
   },
   {
-    name: 'Producto 5',
-    brand: 'Marca 5',
-    descp: 'Descripcion 5',
-    volver: 'Ver almacenamiento'
+    name: 'UNIDAD DE ALMACENAMIENTO M.2 KINGSTON 500GB NV1 SNVS/500G',
+    brand: 'KINGSTON',
+    descp: 'M.2 2280 PCIe NVMe™ Gen 3.0 de 4 carriles 500 GB 2100/1100MB/s',
+    volver: 'Ver más procesadores',
+    precio: '$59.00',
   },
   {
-    name: 'Producto 6',
-    brand: 'Marca 6',
-    descp: 'Descripcion 6',
-    volver: 'Ver almacenamiento'
+    name: 'UNIDAD DE ALMACENAMIENTO M.2 XPG SPECTRIX S20G 1TB RGB',
+    brand: 'XPG',
+    descp: 'No descripción',
+    volver: 'Ver más procesadores',
+    precio: '$159.95',
   },
 ]
 
@@ -77,23 +83,26 @@ export const Discos = () => {
     <>
       <Header />
       <View style={styles.mainContainer}>
-        <View style={styles.container}>
-          {
-            icon.map((data, key)=>{
-              return(
-                <View style={styles.sections} key={key}>
-                  <Modall 
-                    img = {data.img}
-                    title = {data.title}
-                    nombre = {modal[key].name}
-                    marca = {modal[key].brand}
-                    descp = {modal[key].descp}
-                    volver = {modal[key].volver}
-                  />
-                </View>
-              )
-            })
-          }
+      <View>
+          <ScrollView contentContainerStyle={styles.container}>
+            {
+              icon.map((data, key)=>{
+                return(
+                  <View style={styles.sections} key={key}>
+                    <Modall 
+                      img = {data.img}
+                      title = {data.title}
+                      nombre = {modal[key].name}
+                      marca = {modal[key].brand}
+                      descp = {modal[key].descp}
+                      volver = {modal[key].volver}
+                      precio = {modal[key].precio}
+                    />
+                  </View>
+                )
+              })
+            }
+          </ScrollView>
         </View>
       </View>
     </>
