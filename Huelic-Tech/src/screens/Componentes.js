@@ -44,8 +44,8 @@ export const Componentes = () => {
       <Header />
       
       <SafeAreaView style={styles.mainContainer}>
-        <ScrollView>
-        <ImageBackground source={require('../images/ImageBackHome.png')} style={{width:"100%", height:"100%"}}>
+        <ScrollView style={{backgroundColor:"#0E0E0E",}}>
+        <ImageBackground source={require('../images/ImageBackHome.png')} style={{width:"100%", height:"100%",}}>
           {data.map((data, key) => {
             return <CompsAcs 
                     key={key} 
