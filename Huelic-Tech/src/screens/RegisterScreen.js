@@ -13,6 +13,7 @@ import {
   Pressable,
   Animated,
   Alert,
+  ImageBackground
 } from "react-native";
 import { NavigationContext } from "react-navigation";
 import * as Google from "expo-auth-session/providers/google";
@@ -139,7 +140,8 @@ export const RegisterScreen = ({ navigation }) => {
   };
 
   return (
-    <View className="flex flex-1 bg-white justify-center px-12">
+    <ImageBackground source={require('../images/ImageBackHome.png')} style={{width:"100%", height:"100%"}}>
+    <View className="flex flex-1 justify-center px-12">
       <View
         style={{
           position: "absolute",
@@ -172,9 +174,9 @@ export const RegisterScreen = ({ navigation }) => {
           <View className="flex flex-row w-full mb-1">
             <Image
               style={{ width: 30, height: 30 }}
-              source={require("../images/UsuarioLogin.png")}
+              source={require("../images/userLogin.png")}
             />
-            <Text className="text-[#128CB1] mt-1.5">Usuario</Text>
+            <Text className="text-white mt-1.5">Usuario</Text>
           </View>
           <TextInput
             onChangeText={(text) => setEmail(text)}
@@ -188,9 +190,9 @@ export const RegisterScreen = ({ navigation }) => {
           <View className="flex flex-row mb-1">
             <Image
               style={{ width: 30, height: 30 }}
-              source={require("../images/ContraseñaLogin.png")}
+              source={require("../images/lockLogin.png")}
             />
-            <Text className="text-[#128CB1] mt-1.5">Contraseña</Text>
+            <Text className="text-white mt-1.5">Contraseña</Text>
           </View>
           <TextInput
             onChangeText={(text) => setPassword(text)}
@@ -228,11 +230,12 @@ export const RegisterScreen = ({ navigation }) => {
           navigation.navigate("Main");
         }}
       >
-        <Text className="text-base text-center text-[#128CB1] font-bold pt-10">
+        <Text className="text-base text-center text-white font-bold pt-10">
           ¿Ya tienes una cuenta? ¡Ingresa ya!
         </Text>
       </Pressable>
     </View>
+    </ImageBackground>
   );
 };
 

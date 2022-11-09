@@ -63,12 +63,13 @@ export const Cotizacion = () => {
     <>
       <Header />
       <View style={styles.mainContainer}>
+      <View>
         <ScrollView contentContainerStyle={styles.container}>
           <View style={styles.pickerContainer}>
             <Text style={styles.option}>Motherboard (*): </Text>
             <Picker
               selectedValue={selectedMobo}
-              style={{ height: 40, width: '100%', backgroundColor: 'white' }}
+              style={{ height: 35, width: '100%', backgroundColor: 'white' }}
               onValueChange={
                 (itemValue, itemIndex) => {
                   setSelectedMobo(itemValue); 
@@ -82,7 +83,7 @@ export const Cotizacion = () => {
                     <Picker.Item 
                       label={data.nombre} 
                       value={data.id}  
-                      style={{fontSize: 12}}
+                      style={{fontSize: 11}}
                       key= {key}
                     />
                   )
@@ -92,7 +93,7 @@ export const Cotizacion = () => {
             <Text style={styles.option}>Procesador (*): </Text>
             <Picker
               selectedValue={selectedProc}
-              style={{ height: 40, width: '100%', backgroundColor: 'white' }}
+              style={{ height: 35, width: '100%', backgroundColor: 'white' }}
               onValueChange={
                 (itemValue, itemIndex) => {
                   setSelectedProc(itemValue); 
@@ -106,8 +107,9 @@ export const Cotizacion = () => {
                     <Picker.Item 
                       label={data.nombre} 
                       value={data.id}  
-                      style={{fontSize: 12}}
+                      style={{fontSize: 11}}
                       key= {key}
+                      enabled={(selectedMobo.includes("AMD"))?false:true}
                     />
                   )
                 })
@@ -116,7 +118,7 @@ export const Cotizacion = () => {
             <Text style={styles.option}>Memoria RAM (*): </Text>
             <Picker
               selectedValue={selectedRAM}
-              style={{ height: 40, width: '100%', backgroundColor: 'white' }}
+              style={{ height: 35, width: '100%', backgroundColor: 'white' }}
               onValueChange={
                 (itemValue, itemIndex) => {
                   setSelectedRAM(itemValue); 
@@ -130,7 +132,7 @@ export const Cotizacion = () => {
                     <Picker.Item 
                       label={data.nombre} 
                       value={data.id}  
-                      style={{fontSize: 12}}
+                      style={{fontSize: 11}}
                       key= {key}
                     />
                   )
@@ -140,7 +142,7 @@ export const Cotizacion = () => {
             <Text style={styles.option}>Almacenamiento (*): </Text>
             <Picker
               selectedValue={selectedDisco}
-              style={{ height: 40, width: '100%', backgroundColor: 'white' }}
+              style={{ height: 35, width: '100%', backgroundColor: 'white' }}
               onValueChange={
                 (itemValue, itemIndex) => {
                   setSelectedDisco(itemValue); 
@@ -154,7 +156,7 @@ export const Cotizacion = () => {
                     <Picker.Item 
                       label={data.nombre} 
                       value={data.id}  
-                      style={{fontSize: 12}}
+                      style={{fontSize: 11}}
                       key= {key}
                     />
                   )
@@ -164,7 +166,7 @@ export const Cotizacion = () => {
             <Text style={styles.option}>Fuente de poder (*): </Text>
             <Picker
               selectedValue={selectedFuente}
-              style={{ height: 40, width: '100%', backgroundColor: 'white' }}
+              style={{ height: 35, width: '100%', backgroundColor: 'white' }}
               onValueChange={
                 (itemValue, itemIndex) => {
                   setSelectedFuente(itemValue); 
@@ -178,7 +180,7 @@ export const Cotizacion = () => {
                     <Picker.Item 
                       label={data.nombre} 
                       value={data.id}  
-                      style={{fontSize: 12}}
+                      style={{fontSize: 11}}
                       key= {key}
                     />
                   )
@@ -188,7 +190,7 @@ export const Cotizacion = () => {
             <Text style={styles.option}>Tarjeta gráfica: </Text>
             <Picker
               selectedValue={selectedGrafica}
-              style={{ height: 40, width: '100%', backgroundColor: 'white' }}
+              style={{ height: 35, width: '100%', backgroundColor: 'white' }}
               onValueChange={
                 (itemValue, itemIndex) => {
                   setSelectedGrafica(itemValue); 
@@ -202,7 +204,7 @@ export const Cotizacion = () => {
                     <Picker.Item 
                       label={data.nombre} 
                       value={data.id}  
-                      style={{fontSize: 12}}
+                      style={{fontSize: 11}}
                       key= {key}
                     />
                   )
@@ -212,7 +214,7 @@ export const Cotizacion = () => {
             <Text style={styles.option}>Case: </Text>
             <Picker
               selectedValue={selectedCase}
-              style={{ height: 40, width: '100%', backgroundColor: 'white' }}
+              style={{ height: 35, width: '100%', backgroundColor: 'white' }}
               onValueChange={
                 (itemValue, itemIndex) => {
                   setSelectedCase(itemValue); 
@@ -227,7 +229,7 @@ export const Cotizacion = () => {
                     <Picker.Item 
                       label={data.nombre} 
                       value={data.id}  
-                      style={{fontSize: 12}}
+                      style={{fontSize: 11}}
                       key= {key}
                     />
                   )
@@ -235,7 +237,7 @@ export const Cotizacion = () => {
               }
             </Picker>
           </View>
-          <Text style={{width: '100%'}}>Precio aprox: ${total}</Text>
+          <Text style={{width: '100%', color:"white"}}>Precio aprox: ${total}</Text>
           <View style={styles.cotizar}>
             <TouchableHighlight
               onPress={() => {
@@ -329,6 +331,7 @@ export const Cotizacion = () => {
           </TouchableHighlight>
           </View>
         </ScrollView>
+        </View>
       </View>
     </>
   )
@@ -340,9 +343,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: "rgb(226, 232, 240)",
+    backgroundColor: "#0E0E0E",
   },
   container: {
+    width: "100%",
     height: '100%',
     display: 'flex',
     flexWrap: 'wrap',
@@ -351,12 +355,13 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   pickerContainer: {
-    backgroundColor: '#3A8891',
+    backgroundColor: '#464646',
     width: '95%',
     height: 'auto',
-    marginTop: 20,
-    marginBottom: 20,
-    padding: 20,
+    marginTop: 15,
+    marginBottom: 15,
+    paddingHorizontal: 20,
+    paddingVertical:15,
     borderRadius: 15,
     color: 'white'
   },
@@ -364,7 +369,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     paddingTop: 2,
-    paddingBottom: 5,
+    paddingBottom: 2,
     width: '100%'
   },
   cotizar: {

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { View, Image, StyleSheet, Text, SafeAreaView, Modal, Pressable } from "react-native";
+import { View, Image, StyleSheet, Text, SafeAreaView, Modal, Pressable, ImageBackground } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import Header from '../layout/Header';
 import { Card } from "react-native-elements";
@@ -20,13 +20,16 @@ export const Modall = ({nombre,marca,descp,img,title,volver,precio}) => {
           setModalVisible(!modalVisible);
         }}
       >
+      <ImageBackground source={require('../images/ImageBackHome.png')} style={{width:"100%", height:"100%"}}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <View>
-              <Text style={styles.modalText}>Nombre: {nombre}</Text>
+              <Text style={styles.modalTextTitulo}>Nombre: {nombre}</Text>
               <Text style={styles.modalText}>Marca: {marca}</Text>
               <Text style={styles.modalText}>Descripción: {descp}</Text>
-              <Text style={styles.modalText}>Precio: {precio}</Text>
+              <Image source={img} style={styles.ModalImage} />
+              <Text style={styles.modalText2}>Precio: {precio}</Text>
+              
             </View>
               <Pressable
                 style={[styles.button, styles.buttonClose]}
@@ -36,6 +39,7 @@ export const Modall = ({nombre,marca,descp,img,title,volver,precio}) => {
               </Pressable>
             </View>
           </View>
+          </ImageBackground>
       </Modal>
         <Pressable
           onPress={() => setModalVisible(true)}
@@ -56,7 +60,7 @@ const styles = StyleSheet.create({
   mainContainer: {
     padding: 5,
     flex: 1,
-    backgroundColor: "rgb(226, 232, 240)",
+    
   },
   container: {
     display: 'flex',
@@ -78,6 +82,15 @@ const styles = StyleSheet.create({
     height: 120,
     borderRadius: 5,
   },
+  ModalImage:{
+    width:"50%",
+    height:150,
+    borderRadius:10,
+    padding:5,
+    marginLeft:"auto",
+    marginRight:"auto",
+    marginVertical:20,
+  },
   cardLabel: {
     textAlign: "justify",
     fontSize: 14,
@@ -93,19 +106,34 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    backgroundColor: "rgb(226, 232, 240)",
     padding: 20
   },
   button: {
-    backgroundColor: 'teal',
+    backgroundColor: '#0C901B',
     padding: 10,
     borderRadius: 10,
   },
   modalText: {
     padding: 5,
     fontWeight: 'bold',
-    textAlign: 'justify'
+    textAlign: 'justify',
+    color: "white",
+  },
+  modalText2: {
+    padding: 5,
+    fontSize:20,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: "white",
   },  
+  modalTextTitulo: {
+    padding: 5,
+    marginBottom:30,
+    fontSize:20,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: "white",
+  },   
   textStyle: {
     textAlign: 'center',
     color: 'white'

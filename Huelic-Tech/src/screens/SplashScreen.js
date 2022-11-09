@@ -2,9 +2,9 @@ import React, { Component, useState } from "react";
 import { View, StatusBar } from "react-native";
 import * as Animatable from "react-native-animatable";
 import { imageBackgroundStyle } from "@styles/General";
-import { createStackNavigator } from "react-navigation-stack";
+import { withNavigation } from "react-navigation";
 
-export default class LoginScreen extends Component {
+class LoginScreen extends Component {
   goToScreen(routeName) {
     this.props.navigation.navigate(routeName);
   }
@@ -38,3 +38,5 @@ export default class LoginScreen extends Component {
     );
   }
 }
+
+export default withNavigation(LoginScreen)

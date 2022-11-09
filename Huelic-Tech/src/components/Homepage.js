@@ -7,6 +7,7 @@ import {
   Image,
   TouchableWithoutFeedback,
   Alert,
+  ImageBackground,
 } from "react-native";
 import { Card } from "react-native-elements";
 import Header from "../layout/Header";
@@ -19,66 +20,75 @@ export const Homepage = () => {
   return (
     <>
       <Header />
+      <ImageBackground source={require('../images/ImageBackHome.png')} style={{width:"100%", height:"100%"}}>
       <View style={styles.mainContainer}>
-        <View className=" flex flex-row flex-wrap py-2 bg-slate-200" style={{height: '100%', justifyContent: 'space-between', alignItems: 'center'}}>
-          <TouchableWithoutFeedback
-            onPress={() => navigation.navigate("Componentes")}
+          <View
+            className=" flex flex-row flex-wrap py-2"
+            style={{
+              height: "100%",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
           >
-            <Card containerStyle={styles.cardItem}>
-              <Image
-                source={require("../images/compo2Menu.jpg")}
-                style={styles.cardImage}
-              />
-              <Text style={styles.cardLabel}>Componentes</Text>
-            </Card>
-          </TouchableWithoutFeedback>
-          <TouchableWithoutFeedback
-            onPress={() => navigation.navigate("Accesorios")}
-          >
-            <Card containerStyle={styles.cardItem}>
-              <Image
-                source={require("../images/accesoriosMenu.jpg")}
-                style={styles.cardImage}
-              />
-              <Text style={styles.cardLabel}>Accesorios</Text>
-            </Card>
-          </TouchableWithoutFeedback>
-          <TouchableWithoutFeedback
-            onPress={() => navigation.navigate("Cotizacion")}
-          >
-            <Card containerStyle={styles.cardItem}>
-              <Image
-                source={require("../images/cotizacionMenu.jpg")}
-                style={styles.cardImage}
-              />
-              <Text style={styles.cardLabel}>Cotización</Text>
-            </Card>
-          </TouchableWithoutFeedback>
-          <TouchableWithoutFeedback
-            onPress={() => navigation.navigate("NuevosProductos")}
-          >
-            <Card containerStyle={styles.cardItem}>
-              <Image
-                source={require("../images/newIcon.png")}
-                style={{
-                  width: 40,
-                  height: 40,
-                  top: "-14%",
-                  left: "-22%",
-                  position: "absolute",
-                  zIndex: 5,
-                }}
-              />
-              <Image
-                source={require("../images/nuevoMenu.jpg")}
-                style={styles.cardImage}
-              />
-              <Text style={styles.cardLabel}>Nuevos Productos</Text>
-            </Card>
-          </TouchableWithoutFeedback>
-          <MyCarousel />
-        </View>
+            <TouchableWithoutFeedback
+              onPress={() => navigation.navigate("Componentes")}
+            >
+              <Card containerStyle={styles.cardItem}>
+                <Image
+                  source={require("../images/compo2Menu.jpg")}
+                  style={styles.cardImage}
+                />
+                <Text style={styles.cardLabel}>Componentes</Text>
+              </Card>
+            </TouchableWithoutFeedback>
+            <TouchableWithoutFeedback
+              onPress={() => navigation.navigate("Accesorios")}
+            >
+              <Card containerStyle={styles.cardItem}>
+                <Image
+                  source={require("../images/accesoriosMenu.jpg")}
+                  style={styles.cardImage}
+                />
+                <Text style={styles.cardLabel}>Accesorios</Text>
+              </Card>
+            </TouchableWithoutFeedback>
+            <TouchableWithoutFeedback
+              onPress={() => navigation.navigate("Cotizacion")}
+            >
+              <Card containerStyle={styles.cardItem}>
+                <Image
+                  source={require("../images/cotizacionMenu.jpg")}
+                  style={styles.cardImage}
+                />
+                <Text style={styles.cardLabel}>Cotización</Text>
+              </Card>
+            </TouchableWithoutFeedback>
+            <TouchableWithoutFeedback
+              onPress={() => navigation.navigate("NuevosProductos")}
+            >
+              <Card containerStyle={styles.cardItem}>
+                <Image
+                  source={require("../images/newIcon2.png")}
+                  style={{
+                    width: 40,
+                    height: 40,
+                    top: "-14%",
+                    left: "-22%",
+                    position: "absolute",
+                    zIndex: 5,
+                  }}
+                />
+                <Image
+                  source={require("../images/nuevoMenu.jpg")}
+                  style={styles.cardImage}
+                />
+                <Text style={styles.cardLabel}>Nuevos Productos</Text>
+              </Card>
+            </TouchableWithoutFeedback>
+            <MyCarousel />
+          </View>
       </View>
+      </ImageBackground>
     </>
   );
 };
@@ -104,6 +114,5 @@ const styles = StyleSheet.create({
   },
   mainContainer: {
     flex: 1,
-    elevation: -1
-  }
+  },
 });

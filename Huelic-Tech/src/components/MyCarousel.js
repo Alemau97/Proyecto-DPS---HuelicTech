@@ -40,7 +40,7 @@ export default MyCarousel;
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    paddingTop: 20,
+    paddingTop: 10,
     paddingHorizontal: 'auto',
     paddingLeft: 'auto'
   },

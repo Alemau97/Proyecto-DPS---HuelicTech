@@ -8,6 +8,7 @@ import {
   TouchableHighlight,
   Linking,
   Alert,
+  ImageBackground,
 } from "react-native";
 import { Icon } from "react-native-elements";
 import Footer from "../layout/Footer";
@@ -31,10 +32,12 @@ export const Contacto = () => {
   return (
     <>
       <Header />
+      <ImageBackground source={require('../images/ImageBackHome.png')} style={{width:"100%", height:"100%"}}>
       <SafeAreaView style={styles.container}>
         <Text
           style={{
-            fontSize: 20,
+            color:"white",
+            fontSize: 23,
             textAlign: "center",
             padding: 10,
           }}
@@ -150,6 +153,7 @@ export const Contacto = () => {
           </TouchableHighlight>
         </View>
       </SafeAreaView>
+      </ImageBackground>
     </>
   );
 };

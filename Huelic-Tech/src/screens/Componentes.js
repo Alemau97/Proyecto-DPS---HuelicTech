@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Image, StyleSheet, Text, SafeAreaView } from "react-native";
+import { View, Image, StyleSheet, Text, SafeAreaView, ImageBackground } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { CompsAcs } from "../components/CompAcs";
 import { NavigationContext } from "react-navigation";
@@ -42,8 +42,10 @@ export const Componentes = () => {
   return (
     <>
       <Header />
+      
       <SafeAreaView style={styles.mainContainer}>
         <ScrollView>
+        <ImageBackground source={require('../images/ImageBackHome.png')} style={{width:"100%", height:"100%"}}>
           {data.map((data, key) => {
             return <CompsAcs 
                     key={key} 
@@ -52,6 +54,7 @@ export const Componentes = () => {
                     dirigir={pressable[key]}
                     />;
           })}
+         </ImageBackground>
         </ScrollView>
       </SafeAreaView>
     </>
@@ -60,8 +63,6 @@ export const Componentes = () => {
 
 const styles = StyleSheet.create({
   mainContainer: {
-    padding: 5,
     flex: 1,
-    backgroundColor: "rgb(226, 232, 240)",
   },
 });

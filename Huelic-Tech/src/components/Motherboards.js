@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { View, Image, StyleSheet, Text, SafeAreaView, Modal, Pressable } from "react-native";
+import { View, Image, StyleSheet, Text, SafeAreaView, Modal, Pressable, ImageBackground } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import Header from '../layout/Header';
 import { Card } from "react-native-elements";
@@ -111,9 +111,8 @@ export const Motherboards = () => {
 
 const styles = StyleSheet.create({
   mainContainer: {
-    padding: 5,
     flex: 1,
-    backgroundColor: "rgb(226, 232, 240)",
+    backgroundColor: "#0E0E0E",
   },
   container: {
     display: 'flex',

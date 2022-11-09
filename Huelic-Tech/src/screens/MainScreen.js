@@ -14,6 +14,7 @@ import {
   Pressable,
   Alert,
   Animated,
+  ImageBackground
 } from "react-native";
 import * as Google from "expo-auth-session/providers/google";
 import * as WebBrowser from "expo-web-browser";
@@ -154,7 +155,8 @@ export default function MainScreen({ navigation: { navigate } }) {
     }
   };
   return (
-    <View className="flex flex-1 bg-white justify-center px-12">
+    <ImageBackground source={require('../images/ImageBackHome.png')} style={{width:"100%", height:"100%"}}>
+    <View className="flex flex-1 justify-center px-12">
       <View
         style={{
           position: "absolute",
@@ -188,9 +190,9 @@ export default function MainScreen({ navigation: { navigate } }) {
           <View className="flex flex-row w-full mb-1">
             <Image
               style={{ width: 30, height: 30 }}
-              source={require("../images/UsuarioLogin.png")}
+              source={require("../images/userLogin.png")}
             />
-            <Text className="text-[#128CB1] mt-1.5">Usuario</Text>
+            <Text className="text-white mt-1.5">Usuario</Text>
           </View>
           <TextInput
             onChangeText={(text) => setEmail(text)}
@@ -204,9 +206,9 @@ export default function MainScreen({ navigation: { navigate } }) {
           <View className="flex flex-row mb-1">
             <Image
               style={{ width: 30, height: 30 }}
-              source={require("../images/ContraseñaLogin.png")}
+              source={require("../images/lockLogin.png")}
             />
-            <Text className="text-[#128CB1] mt-1.5">Contraseña</Text>
+            <Text className="text-white mt-1.5">Contraseña</Text>
           </View>
           <TextInput
             onChangeText={(text) => setPassword(text)}
@@ -242,7 +244,7 @@ export default function MainScreen({ navigation: { navigate } }) {
 
       <Pressable
         onPress={() => promptAsync()}
-        className="font-bold py-2 px-4 border border-black rounded mt-4 mx-15"
+        className="font-bold py-2 px-4 border border-white rounded mt-4 mx-15"
       >
         <View className="flex flex-row justify-center align-middle">
           <Image
@@ -250,7 +252,7 @@ export default function MainScreen({ navigation: { navigate } }) {
             style={{ width: 15, height: 15 }}
             source={require("../images/IconGoogle.png")}
           />
-          <Text className="text-center m-0.5 font-bold">
+          <Text className="text-center text-white m-0.5 font-bold">
             Ingresar con google
           </Text>
         </View>
@@ -261,11 +263,12 @@ export default function MainScreen({ navigation: { navigate } }) {
           navigate("Register");
         }}
       >
-        <Text className="text-base text-center text-[#128CB1] font-bold pt-10">
+        <Text className="text-base text-center text-white font-bold pt-10">
           ¿No tienes una cuenta? ¡Únete!
         </Text>
       </Pressable>
     </View>
+    </ImageBackground>
   );
 }
 const styles = StyleSheet.create({

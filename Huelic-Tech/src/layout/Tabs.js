@@ -15,10 +15,18 @@ function HomeTabs() {
     <Tab.Navigator
       screenOptions={{
         tabBarActiveTintColor: "#FFF",
-        tabBarActiveBackgroundColor: "#128CB1",
+        tabBarActiveBackgroundColor: "#0C901B",
+        tabBarStyle:{
+          height: 55,
+          backgroundColor: "#1D1D1D",
+        },
         tabBarLabelStyle: {
-          fontSize: 12,
-          marginBottom: 4,
+          color: "#E5E5E5",
+          fontSize: 14,
+          marginBottom: 8,
+        },
+        tabBarIconStyle: {
+          
         },
       }}
     >

@@ -26,30 +26,17 @@ export default function Navbar() {
             source={require("../images/LogoHuelic.png")}
             style={styles.logo}
           />
-        </View>
-      </View>
-      <View style={styles.bottomHeader}>
-        <View style={styles.searchBar}>
-          {/** 
-            <SearchBar
-            placeholder="Buscar"
-            showCancel
-            round
-            platform="android"
-            inputContainerStyle={styles.searchBarInputContainer}
-          />
-          */}
-        </View>
-        <View style={styles.buttons}>
+          <View style={styles.buttons}>
           <TouchableOpacity
             style={styles.loginContainer}
             onPress={() => navigation.navigate("Main")}
           >
-            <Icon name="person" color="black" size={30} />
+            <Icon name="person" color="white" size={30} />
           </TouchableOpacity>
           <TouchableOpacity style={styles.cartContainer}>
-            <Icon name="shopping-cart" color="black" size={30} />
+            <Icon name="shopping-cart" color="white" size={30} />
           </TouchableOpacity>
+        </View>
         </View>
       </View>
     </View>
@@ -66,8 +53,8 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "center",
-    backgroundColor: "#fff",
+    alignItems: "flex-start",
+    backgroundColor: "#1D1D1D",
     paddingTop: 45,
     padding: 20,
     width: "100%",
@@ -75,7 +62,7 @@ const styles = StyleSheet.create({
   imgContainer: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "center",
+    justifyContent: "flex-start",
     alignItems: "center",
     width: '100%'
   },
@@ -88,7 +75,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: "white",
+    backgroundColor: "#1D1D1D",
     paddingTop: 0,
     paddingBottom: 5,
     paddingLeft: 10,
@@ -107,16 +94,17 @@ const styles = StyleSheet.create({
     borderRadius: 6,
   },
   buttons: {
+    paddingLeft: 20,
     width: "28%",
     padding: 2,
-    backgroundColor: "white",
+    backgroundColor: "#1D1D1D",
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
   },
   loginContainer: {
-    padding: 5,
+    padding: 20,
   },
   cartContainer: {
     padding: 5,
