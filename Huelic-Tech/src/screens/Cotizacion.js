@@ -233,9 +233,7 @@ export const Cotizacion = () => {
               if(selectedMobo == '' || selectedProc == '' || selectedRAM == '' || selectedDisco == '' || selectedFuente == '' ){
                   Alert.alert("Debe llenar los campos necesarios")
                 }else{
-                  Linking.openURL(
-                  `whatsapp://send?text=${mensaje}&phone=${wha}`
-                  );
+                  openUrl(`mailto: ${mail}?subject=Cotización&body=${mensaje}`);
                   setSelectedMobo('');
                   setSelectedProc('');
                   setSelectedRAM('');
