@@ -32,9 +32,13 @@ const data = [
     img: require("../images/accesorios/soporte.jpg"),
     title: "Soportes",
   },
+  {
+    img: require("../images/accesorios/Cases/case.jpeg"),
+    title: "Cases",
+  },
 ];
 
-const pressable = ["Perifericos", "Sillas","Luces","Mantenimiento","Audio","Soportes"];
+const pressable = ["Perifericos", "Sillas","Luces","Mantenimiento","Audio","Soportes","Cases"];
 
 export const Accesorios = ({ navigation }) => {
   return (

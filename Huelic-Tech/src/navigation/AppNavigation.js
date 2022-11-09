@@ -24,6 +24,8 @@ import { Soportes } from "../components/Soportes";
 import { NuevosProductos } from "../components/NuevosProductos";
 import { Homepage } from "../components/Homepage";
 import { Contacto } from "../screens/Contacto";
+import { Cotizacion } from "../screens/Cotizacion";
+import { Cases } from "../components/Cases";
 
 const HomeStackNavigator = createNativeStackNavigator();
 
@@ -173,6 +175,20 @@ function MyStack() {
       <HomeStackNavigator.Screen
         name="Contacto"
         component={Contacto}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <HomeStackNavigator.Screen
+        name="Cotizacion"
+        component={Cotizacion}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <HomeStackNavigator.Screen
+        name="Cases"
+        component={Cases}
         options={{
           headerShown: false,
         }}

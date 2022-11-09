@@ -43,7 +43,9 @@ export const Homepage = () => {
               <Text style={styles.cardLabel}>Accesorios</Text>
             </Card>
           </TouchableWithoutFeedback>
-          <TouchableWithoutFeedback>
+          <TouchableWithoutFeedback
+            onPress={() => navigation.navigate("Cotizacion")}
+          >
             <Card containerStyle={styles.cardItem}>
               <Image
                 source={require("../images/cotizacionMenu.jpg")}
