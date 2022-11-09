@@ -27,9 +27,6 @@ export default function Navbar() {
             style={styles.logo}
           />
         </View>
-        <View style={styles.menuContainer}>
-          <Icon name="menu" color="black" size={30} />
-        </View>
       </View>
       <View style={styles.bottomHeader}>
         <View style={styles.searchBar}>
@@ -71,7 +68,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     backgroundColor: "#fff",
-    paddingTop: 40,
+    paddingTop: 45,
     padding: 20,
     width: "100%",
   },
@@ -80,17 +77,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
+    width: '100%'
   },
   logo: {
     width: 230,
     height: 60,
-  },
-  menuContainer: {
-    borderColor: "#128CB1",
-    borderWidth: 2,
-    borderStyle: "solid",
-    borderRadius: 6,
-    padding: 3,
   },
   bottomHeader: {
     display: "flex",

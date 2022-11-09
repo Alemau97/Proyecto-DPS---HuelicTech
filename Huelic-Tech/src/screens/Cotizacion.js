@@ -18,6 +18,14 @@ import { Icon } from "react-native-elements";
 const wha = "50371470021";
 const mail = "huelictech2022@gmail.com";
 
+const precioMobo = [0,99.00,149.95,399.00,559.00,99.00,225.00];
+const precioProc = [0,79.95,229.00,849.00,199.00,369.00,679.00];
+const precioRam = [0,45.00,55.00,89.00,399.00,129.00,69.00];
+const precioDisco = [0,55.00,129.00,45.00,129.00,59.00,159.95];
+const precioFuente = [0,17.95,69.95,89.00,99.00,144.95,569.00];
+const precioGraph = [0,85.00,219.00,349.00,469.00,999.00,2199.00];
+const precioCase = [0,49.00,59.00,115.00,145.00,235.00,659.00];
+
 export const Cotizacion = () => {
 
   const openUrl = async (url) => {
@@ -36,6 +44,16 @@ export const Cotizacion = () => {
   const [selectedFuente, setSelectedFuente] = useState('');
   const [selectedGrafica, setSelectedGrafica] = useState('');
   const [selectedCase, setSelectedCase] = useState('');
+  
+  const [moboPrice, setMoboPrice] = useState(0);
+  const [procPrice, setProcPrice] = useState(0);
+  const [ramPrice, setRamPrice] = useState(0);
+  const [discPrice, setDiscPrice] = useState(0);
+  const [fontPrice, setFontPrice] = useState(0);
+  const [graphPrice, setGraphPrice] = useState(0);
+  const [casePrice, setCasePrice] = useState(0);
+  
+  let total = moboPrice + procPrice + ramPrice + discPrice + fontPrice + graphPrice + casePrice;
 
   const mensaje = `¡Hola, Huelic-Tech!, quisiera que me ayuden con una cotización, necesito:
   motherboard: ${selectedMobo}, procesador: ${selectedProc}, RAM: ${selectedRAM},
@@ -52,7 +70,10 @@ export const Cotizacion = () => {
               selectedValue={selectedMobo}
               style={{ height: 40, width: '100%', backgroundColor: 'white' }}
               onValueChange={
-                (itemValue, itemIndex) => setSelectedMobo(itemValue)
+                (itemValue, itemIndex) => {
+                  setSelectedMobo(itemValue); 
+                  setMoboPrice(precioMobo[itemIndex]);
+                }
               }
             >
               {
@@ -62,6 +83,7 @@ export const Cotizacion = () => {
                       label={data.nombre} 
                       value={data.id}  
                       style={{fontSize: 12}}
+                      key= {key}
                     />
                   )
                 })
@@ -72,7 +94,10 @@ export const Cotizacion = () => {
               selectedValue={selectedProc}
               style={{ height: 40, width: '100%', backgroundColor: 'white' }}
               onValueChange={
-                (itemValue, itemIndex) => setSelectedProc(itemValue)
+                (itemValue, itemIndex) => {
+                  setSelectedProc(itemValue); 
+                  setProcPrice(precioProc[itemIndex]);
+                }
               }
             >
               {
@@ -82,6 +107,7 @@ export const Cotizacion = () => {
                       label={data.nombre} 
                       value={data.id}  
                       style={{fontSize: 12}}
+                      key= {key}
                     />
                   )
                 })
@@ -92,7 +118,10 @@ export const Cotizacion = () => {
               selectedValue={selectedRAM}
               style={{ height: 40, width: '100%', backgroundColor: 'white' }}
               onValueChange={
-                (itemValue, itemIndex) => setSelectedRAM(itemValue)
+                (itemValue, itemIndex) => {
+                  setSelectedRAM(itemValue); 
+                  setRamPrice(precioRam[itemIndex]);
+                }
               }
             >
               {
@@ -102,6 +131,7 @@ export const Cotizacion = () => {
                       label={data.nombre} 
                       value={data.id}  
                       style={{fontSize: 12}}
+                      key= {key}
                     />
                   )
                 })
@@ -112,7 +142,10 @@ export const Cotizacion = () => {
               selectedValue={selectedDisco}
               style={{ height: 40, width: '100%', backgroundColor: 'white' }}
               onValueChange={
-                (itemValue, itemIndex) => setSelectedDisco(itemValue)
+                (itemValue, itemIndex) => {
+                  setSelectedDisco(itemValue); 
+                  setDiscPrice(precioDisco[itemIndex]);
+                }
               }
             >
               {
@@ -122,6 +155,7 @@ export const Cotizacion = () => {
                       label={data.nombre} 
                       value={data.id}  
                       style={{fontSize: 12}}
+                      key= {key}
                     />
                   )
                 })
@@ -132,7 +166,10 @@ export const Cotizacion = () => {
               selectedValue={selectedFuente}
               style={{ height: 40, width: '100%', backgroundColor: 'white' }}
               onValueChange={
-                (itemValue, itemIndex) => setSelectedFuente(itemValue)
+                (itemValue, itemIndex) => {
+                  setSelectedFuente(itemValue); 
+                  setFontPrice(precioFuente[itemIndex]);
+                }
               }
             >
               {
@@ -142,6 +179,7 @@ export const Cotizacion = () => {
                       label={data.nombre} 
                       value={data.id}  
                       style={{fontSize: 12}}
+                      key= {key}
                     />
                   )
                 })
@@ -152,7 +190,10 @@ export const Cotizacion = () => {
               selectedValue={selectedGrafica}
               style={{ height: 40, width: '100%', backgroundColor: 'white' }}
               onValueChange={
-                (itemValue, itemIndex) => setSelectedGrafica(itemValue)
+                (itemValue, itemIndex) => {
+                  setSelectedGrafica(itemValue); 
+                  setGraphPrice(precioGraph[itemIndex]);
+                }
               }
             >
               {
@@ -162,6 +203,7 @@ export const Cotizacion = () => {
                       label={data.nombre} 
                       value={data.id}  
                       style={{fontSize: 12}}
+                      key= {key}
                     />
                   )
                 })
@@ -172,7 +214,11 @@ export const Cotizacion = () => {
               selectedValue={selectedCase}
               style={{ height: 40, width: '100%', backgroundColor: 'white' }}
               onValueChange={
-                (itemValue, itemIndex) => setSelectedCase(itemValue)
+                (itemValue, itemIndex) => {
+                  setSelectedCase(itemValue); 
+                  setCasePrice(precioCase[itemIndex]);
+                }
+
               }
             >
               {
@@ -182,12 +228,14 @@ export const Cotizacion = () => {
                       label={data.nombre} 
                       value={data.id}  
                       style={{fontSize: 12}}
+                      key= {key}
                     />
                   )
                 })
               }
             </Picker>
           </View>
+          <Text style={{width: '100%'}}>Precio aprox: ${total}</Text>
           <View style={styles.cotizar}>
             <TouchableHighlight
               onPress={() => {
@@ -204,6 +252,13 @@ export const Cotizacion = () => {
                   setSelectedFuente('');
                   setSelectedGrafica('');
                   setSelectedCase('');
+                  setMoboPrice(0);
+                  setProcPrice(0);
+                  setRamPrice(0);
+                  setDiscPrice(0);
+                  setFontPrice(0);
+                  setGraphPrice(0);
+                  setCasePrice(0);
                 }
               }}
               underlayColor="transparent"
@@ -241,6 +296,13 @@ export const Cotizacion = () => {
                   setSelectedFuente('');
                   setSelectedGrafica('');
                   setSelectedCase('');
+                  setMoboPrice(0);
+                  setProcPrice(0);
+                  setRamPrice(0);
+                  setDiscPrice(0);
+                  setFontPrice(0);
+                  setGraphPrice(0);
+                  setCasePrice(0);
                 }
             }}
             underlayColor="transparent"
@@ -290,7 +352,7 @@ const styles = StyleSheet.create({
   },
   pickerContainer: {
     backgroundColor: '#3A8891',
-    width: '90%',
+    width: '95%',
     height: 'auto',
     marginTop: 20,
     marginBottom: 20,
@@ -302,7 +364,8 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     paddingTop: 2,
-    paddingBottom: 5
+    paddingBottom: 5,
+    width: '100%'
   },
   cotizar: {
     display: 'flex',

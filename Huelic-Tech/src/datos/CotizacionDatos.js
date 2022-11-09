@@ -7,27 +7,27 @@ export const mobo = [
   },
   {
     nombre: 'MOTHERBOARD GIGABYTE H510M',
-    id: 'GIGABYTE H510M'
+    id: 'GIGABYTE H510M, Intel',
   },
   {
     nombre: 'MOTHERBOARD ASUS PRIME B560M-A',
-    id: 'ASUS PRIME B560M-A'
+    id: 'ASUS PRIME B560M-A, Intel'
   },
   {
     nombre: 'MOTHERBOARD ASUS ROG STRIX Z690-F',
-    id: 'ASUS ROG STRIX Z690-F'
+    id: 'ASUS ROG STRIX Z690-F, Intel'
   },
   {
     nombre: 'MOTHERBOARD ASROCK X670E PRO',
-    id: 'SROCK X670E PRO'
+    id: 'SROCK X670E PRO, Intel'
   },
   {
     nombre: 'MOTHERBOARD GIGABYTE B450M',
-    id: 'GIGABYTE B450M'
+    id: 'GIGABYTE B450M, AMD'
   },
   {
     nombre: 'MOTHERBOARD ASUS PRIME X570-P',
-    id: 'ASUS PRIME X570-P'
+    id: 'ASUS PRIME X570-P, AMD'
   }
 ]
 
