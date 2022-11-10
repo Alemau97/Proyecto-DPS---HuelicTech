@@ -24,7 +24,7 @@ https://github.com/Alemau97/Proyecto-DPS---HuelicTech/blob/main/Archivos/HuelicT
 
 https://www.canva.com/design/DAFPKVlw-NE/T0eIAzx6OREINamHxQydxA/edit?utm_content=DAFPKVlw-NE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
-https://github.com/Alemau97/Proyecto-DPS---HuelicTech/blob/main/Archivos/Manual%20de%20Usuario%20(4).pdf
+https://github.com/Alemau97/Proyecto-DPS---HuelicTech/blob/main/Archivos/Manual%20de%20Usuario.pdf
 
 // MANUAL TÉCNICO
 
